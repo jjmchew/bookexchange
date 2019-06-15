@@ -1,0 +1,18 @@
+<div class="container">
+  <div style="color: rgb(68,114,196); font-family: 'Merriweather', serif;">
+    Books posted by others
+  </div>
+
+  <div class="row">
+    <div
+      class="grid m-grid-2 d-grid-4 sm-grid-1"
+      *ngFor="let book of localbooksArray"
+      (click)="open(book)"
+    >
+      <img class="img-m img-d" src="{{ book.coversrc }}" />
+      <h5>{{ book.title }}</h5>
+      <h6>by {{ book.author }}</h6>
+      <h6 class="bookCategory">{{ book.category }}</h6>
+    </div>
+  </div>
+</div>

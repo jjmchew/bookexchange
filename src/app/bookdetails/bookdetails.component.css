@@ -1,0 +1,17 @@
+.imgDiv {
+  width: 48%;
+  height: auto;
+  float: left;
+  margin: 1%;
+}
+
+.info {
+  width: 48%;
+  float: left;
+  margin: 1%;
+}
+
+h5 {
+  font-style: bold;
+  margin: 0px;
+}

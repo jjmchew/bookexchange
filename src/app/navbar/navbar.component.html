@@ -1,0 +1,55 @@
+<!-- <div class="jumbotron" style="padding-bottom:10px">
+  <h1 class="display-5" style="margin-top:10%">Book Exchange Portal</h1>
+  <p class="lead" style="margin-bottom:0px;">
+    Use your old books to find new favourites
+  </p>
+</div> -->
+
+<nav
+  class="navbar navbar-expand-md navbar-light"
+  style="background-color: rgb(218,227,243);"
+>
+  <a class="navbar-brand" routerLink="home">
+    <img
+      src="./assets/books.svg"
+      width="40"
+      height="40"
+      class="d-inline-block align-top"
+      alt="books"
+    />
+    <span style="color: rgb(68,114,196); font-family: 'Merriweather', serif; "
+      >Book Exchange Portal</span
+    ></a
+  >
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    (click)="toggleCollapsed()"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon" ngToggler></span>
+  </button>
+
+  <div
+    class="collapse navbar-collapse"
+    id="navbarSupportedContent"
+    [ngClass]="{ collapse: collapsed, 'navbar-collapse': true }"
+  >
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item px-3">
+        <a class="nav-link" routerLink="home">Home </a>
+      </li>
+      <li class="nav-item px-3">
+        <a class="nav-link" routerLink="browsebooks">Browse books</a>
+      </li>
+      <li class="nav-item px-3">
+        <a class="nav-link" routerLink="addbooks">Post a book</a>
+      </li>
+    </ul>
+  </div>
+</nav>
