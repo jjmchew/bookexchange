@@ -1,12 +1,27 @@
 <div>
-  <img class="imgDiv" src="{{ selectedBook.coversrc }}" />
-  <div class="info">
+  <img class="imgDiv sm-imgDiv" src="{{ selectedBook.coversrc }}" />
+  <div class="info-1 sm-info1">
     <h5>{{ selectedBook.title }}</h5>
 
     by {{ selectedBook.author }} <br />
     published {{ selectedBook.publishdate }} <br />
-    contact: {{ selectedBook.contact }} <br />
-    phone: {{ selectedBook.phone }} <br />
-    email: {{ selectedBook.email }} <br />
+    <div class="info-1 sm-info1" style="padding-top: 5%;">
+      {{ selectedBook.category }}
+    </div>
+
+    <div class="info-1 sm-info1" style="padding-top: 15%;">
+      <span class="info-header sm-info-header"> contact:</span>
+      <span class="info-data sm-info-header">{{ selectedBook.contact }}</span>
+    </div>
+
+    <div class="info-1 sm-info1">
+      <span class="info-header sm-info-header"> phone:</span>
+      <span class="info-data sm-info-data">{{ selectedBook.phone }}</span>
+    </div>
+
+    <div class="info-1 sm-info1">
+      <span class="info-header sm-info-header"> email:</span>
+      <span class="info-data sm-info-data">{{ selectedBook.email }}</span>
+    </div>
   </div>
 </div>
