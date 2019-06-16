@@ -34,10 +34,10 @@ app.get('/api/books', function(req, res){
 	});
 });
 
-app.post('/api/task', function(req, res){
+app.post('/api/books', function(req, res){
 	var formdata = req.body;
 	console.log(formdata);
-	var sql = `INSERT INTO tasks (name, description, start_date, end_date, status) VALUES ('${formdata.name}', '${formdata.description}', '${formdata.start_date}', '${formdata.end_date}', '${formdata.status}')`;
+	var sql = `INSERT INTO books (title, author, publishdate, category, coversrc, contact, phone, email) VALUES ('${formdata.title}', '${formdata.author}','${formdata.publishdate}', '${formdata.category}','${formdata.coversrc}','${formdata.contact}', '${formdata.phone}','${formdata.email}')`;
 	console.log(sql);
 	con.query(sql, function (err, result) {
 		if (err) throw err;
