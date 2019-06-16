@@ -1,17 +1,50 @@
 .imgDiv {
-  width: 48%;
+  width: 30%;
   height: auto;
   float: left;
   margin: 1%;
 }
 
-.info {
-  width: 48%;
+.info-1 {
+  width: 66%;
   float: left;
-  margin: 1%;
+}
+
+.info-header {
+  width: 30%;
+  float: left;
+  font-style: normal;
+}
+
+.info-data {
+  font-weight: bold;
+  width: 65%;
+  float: left;
+}
+
+@media (max-width: 500px) {
+  .sm-info-1 {
+    width: 80%;
+  }
+
+  .sm-info-header {
+    width: 100%;
+    margin-top: 2%;
+    font-style: normal;
+  }
+
+  .sm-info-data {
+    font-weight: bold;
+    width: 100%;
+  }
+
+  .sm-imgDiv {
+    width: 80%;
+    height: auto;
+  }
 }
 
 h5 {
-  font-style: bold;
+  font-weight: bold;
   margin: 0px;
 }

@@ -1,0 +1,107 @@
+.container {
+  display: block;
+  width: 100%;
+  /* background-color: red; */
+}
+
+.row {
+  display: block;
+  width: 100%;
+  /* max-width: 960px; */
+  /* for desktop view */
+  margin: 0 auto;
+  /* outline: 1px solid rgb(218, 227, 243); */
+  /* to visualize our element */
+  font-family: 'Merriweather', serif;
+}
+
+/* clearfix set against the row class for convenience */
+.row:before,
+.row:after {
+  content: ' ';
+  display: table;
+}
+.row:after {
+  clear: both;
+}
+
+.grid {
+  box-sizing: border-box;
+  height: 20px;
+  padding: 1%;
+  /* to visualize */
+  float: left;
+  margin: 0px;
+  /* padding-bottom: 10%; */
+  outline: 0px solid rgb(218, 227, 243);
+  height: auto;
+  /* overflow: hidden; */
+  font-family: 'Roboto', sans-serif;
+}
+
+.m-col1 {
+  width: 40%;
+  margin: 1%;
+}
+.m-col2 {
+  width: 55%;
+  margin-top: 5%;
+}
+
+.img-m {
+  width: 100%;
+  height: auto;
+  float: left;
+  margin: 0px;
+}
+
+@media (max-width: 500px) {
+  .sm-col1 {
+    width: 100%;
+  }
+
+  .img-sm {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: auto;
+    /* visibility: hidden; */
+  }
+}
+
+@media (min-width: 960px) {
+  .d-col1 {
+    width: 20%;
+  }
+  .d-col2 {
+    width: 72%;
+    margin-top: 3%;
+  }
+
+  .img-d {
+    width: 100%;
+    height: auto;
+    float: left;
+  }
+}
+
+.bookCategory {
+  position: relative;
+  padding-top: 5%;
+}
+
+.quote {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8em;
+  padding: 5%;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.instructions {
+  color: rgba(0, 0, 0, 0.7);
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8em;
+  padding: 5%;
+}
