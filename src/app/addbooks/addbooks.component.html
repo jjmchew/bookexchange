@@ -1,3 +1,284 @@
-<p>
-  addbooks works!
-</p>
+<div class="container">
+  <div class="pageHeading">
+    Post your book online
+    <span class="comment">All fields are required</span>
+  </div>
+  <br />
+
+  <div class="inputDiv">
+    <form [formGroup]="addBookGroup">
+      <div class="rowDiv">
+        <label for="title">Title</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          formControlName="title"
+          name="title"
+          placeholder="Enter title of book to post online"
+        />
+      </div>
+
+      <div class="rowDiv">
+        <label for="author">Author</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="author"
+          formControlName="author"
+          name="author"
+          placeholder="First Last"
+        />
+      </div>
+
+      <div class="rowDiv">
+        <label for="publishdate">Year Published</label>
+        <input
+          type="text"
+          class="form-control"
+          id="publishdate"
+          formControlName="publishdate"
+          name="publishdate"
+          placeholder="2019"
+        />
+      </div>
+
+      <div class="rowDiv">
+        <label>Book Category</label>
+        <select
+          class="form-control"
+          formControlName="category"
+          placeholder="Fiction"
+        >
+          <option value="Fiction">Fiction</option>
+          <option value="Non-Fiction">Non-Fiction</option>
+        </select>
+      </div>
+
+      <div class="rowDiv">
+        <label for="coversrc">Cover Image</label>
+        <input
+          type="text"
+          class="form-control"
+          id="coversrc"
+          formControlName="coversrc"
+          name="coversrc"
+          placeholder="Enter URL to online image of book cover"
+        />
+      </div>
+
+      <div class="spacerRow"><hr /></div>
+
+      <div class="rowDiv">
+        <label for="contact">Contact name for online posting</label>
+        <input
+          type="text"
+          class="form-control"
+          id="contact"
+          formControlName="contact"
+          name="contact"
+          placeholder="your name"
+        />
+      </div>
+
+      <div class="rowDiv">
+        <label>Phone number</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="phone"
+          id="phone"
+          name="phone"
+          placeholder="123-456-7890"
+        />
+      </div>
+
+      <div class="rowDiv">
+        <label>Email</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="email"
+          id="email"
+          name="email"
+          placeholder="email@domain.com"
+        />
+      </div>
+
+      <br />
+      <button
+        type="submit"
+        [disabled]="!addBookGroup.valid"
+        (click)="onSubmit()"
+      >
+        Post Online
+      </button>
+
+      <div class="rowDiv"></div>
+    </form>
+  </div>
+  <!-- close inputDiv -->
+
+  <div class="msgDiv">
+    <br />
+    <div class="rowDivMsg">
+      <span
+        *ngIf="
+          addBookGroup.get('title').errors?.required &&
+          addBookGroup.get('title').touched
+        "
+        [ngClass]="'rowDivMsg errorMsg'"
+      >
+        Please enter book title
+      </span>
+      <span
+        *ngIf="addBookGroup.get('title').valid"
+        [ngClass]="'rowDivMsg okayMsg'"
+      >
+        <img class="checkmark" src="./assets/checkmark.png" alt="OK" />
+      </span>
+    </div>
+
+    <div class="rowDivMsg">
+      <span
+        *ngIf="
+          addBookGroup.get('author').errors?.required &&
+          addBookGroup.get('author').touched
+        "
+        [ngClass]="'rowDivMsg errorMsg'"
+      >
+        Please enter book's author name
+      </span>
+      <span
+        *ngIf="
+          addBookGroup.get('author').errors?.pattern &&
+          addBookGroup.get('author').touched
+        "
+        [ngClass]="'rowDivMsg errorMsg'"
+      >
+        Please enter a first and last name
+      </span>
+      <span
+        *ngIf="addBookGroup.get('author').valid"
+        [ngClass]="'rowDivMsg okayMsg'"
+      >
+        <img class="checkmark" src="./assets/checkmark.png" alt="OK" />
+      </span>
+    </div>
+
+    <div class="rowDivMsg">
+      <span
+        *ngIf="
+          addBookGroup.get('publishdate').errors?.required &&
+          addBookGroup.get('publishdate').touched
+        "
+        [ngClass]="'rowDivMsg errorMsg'"
+      >
+        Please enter publishing date of book
+      </span>
+      <span
+        *ngIf="
+          addBookGroup.get('publishdate').errors?.pattern &&
+          addBookGroup.get('publishdate').touched
+        "
+        [ngClass]="'rowDivMsg errorMsg'"
+      >
+        Please check publishing date of book
+      </span>
+      <span
+        *ngIf="addBookGroup.get('publishdate').valid"
+        [ngClass]="'okayMsg rowDivMsg'"
+      >
+        <img class="checkmark" src="./assets/checkmark.png" alt="OK" />
+      </span>
+    </div>
+
+    <div class="rowDivMsg">
+      <span
+        *ngIf="
+          addBookGroup.get('category').errors?.required &&
+          addBookGroup.get('category').touched
+        "
+        [ngClass]="'errorMsg rowDivMsg'"
+      >
+        Please select book category from drop-down
+      </span>
+      <span
+        *ngIf="addBookGroup.get('category').valid"
+        [ngClass]="'okayMsg rowDivMsg'"
+      >
+        <img class="checkmark" src="./assets/checkmark.png" alt="OK" />
+      </span>
+    </div>
+
+    <div class="rowDivMsg"></div>
+    <div class="spacerRow"></div>
+
+    <div class="rowDivMsg">
+      <span
+        *ngIf="
+          addBookGroup.get('contact').errors?.required &&
+          addBookGroup.get('contact').touched
+        "
+        [ngClass]="'errorMsg rowDivMsg'"
+      >
+        Please enter contact name for exchange
+      </span>
+      <span
+        *ngIf="addBookGroup.get('contact').valid"
+        [ngClass]="'okayMsg rowDivMsg'"
+      >
+        <img class="checkmark" src="./assets/checkmark.png" alt="OK" />
+      </span>
+    </div>
+
+    <div class="rowDivMsg">
+      <span
+        *ngIf="
+          addBookGroup.get('phone').errors?.required &&
+          addBookGroup.get('phone').touched
+        "
+        [ngClass]="'errorMsg rowDivMsg'"
+      >
+        Please enter contact phone number
+      </span>
+      <span
+        *ngIf="
+          addBookGroup.get('phone').errors?.pattern &&
+          addBookGroup.get('phone').touched
+        "
+        [ngClass]="'errorMsg rowDivMsg'"
+      >
+        Please check phone number and enter in required format
+      </span>
+      <span
+        *ngIf="addBookGroup.get('phone').valid"
+        [ngClass]="'okayMsg rowDivMsg'"
+      >
+        <img class="checkmark" src="./assets/checkmark.png" alt="OK" />
+      </span>
+    </div>
+
+    <div class="rowDivMsg">
+      <span
+        *ngIf="
+          addBookGroup.get('email').errors?.required &&
+          addBookGroup.get('email').touched
+        "
+        [ngClass]="'errorMsg rowDivMsg'"
+      >
+        Please enter contact email for book exchange
+      </span>
+      <span
+        *ngIf="addBookGroup.get('email').valid"
+        [ngClass]="'okayMsg rowDivMsg'"
+      >
+        <img class="checkmark" src="./assets/checkmark.png" alt="OK" />
+      </span>
+    </div>
+  </div>
+  <!-- close msgDiv -->
+</div>
+<!-- close container -->

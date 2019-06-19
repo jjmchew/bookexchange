@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ModalComponent } from './modal/modal.component';
 import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 import { ModalbookdetailsComponent } from './modalbookdetails/modalbookdetails.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,13 @@ import { ModalbookdetailsComponent } from './modalbookdetails/modalbookdetails.c
     BookdetailsComponent,
     ModalbookdetailsComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   providers: [NgbActiveModal],
   bootstrap: [AppComponent],
   entryComponents: [ModalbookdetailsComponent]

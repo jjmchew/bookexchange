@@ -1,0 +1,57 @@
+.container {
+  margin-top: 2%;
+  padding: 2%;
+  width: 100%;
+  height: 54em;
+  display: block;
+  border: 1px solid rgb(218, 227, 243);
+}
+
+.inputDiv {
+  width: 50%;
+  float: left;
+  display: block;
+}
+
+.rowDiv {
+  height: 5em;
+}
+
+.rowDivMsg {
+  height: 5em;
+  padding-top: 0.3em;
+  vertical-align: middle;
+  line-height: 0.9;
+}
+
+.checkmark {
+  height: 2em;
+  width: auto;
+}
+
+.spacerRow {
+  height: 4em;
+  padding-top: 1em;
+}
+
+.msgDiv {
+  width: 45%;
+  float: left;
+  padding-left: 2%;
+  display: block;
+}
+
+.comment {
+  font-style: italic;
+  font-family: 'Roboto', sans-serif;
+  margin-left: 6%;
+  color: gray;
+  font-size: 0.8em;
+}
+
+.errorMsg {
+  color: red;
+}
+.okayMsg {
+  color: green;
+}
