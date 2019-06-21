@@ -34,7 +34,8 @@ export class AddbooksComponent implements OnInit {
           )
         ]
       ],
-      email: ['', [Validators.required, Validators.email]]
+      email: ['', [Validators.required, Validators.email]],
+      postingpw: ['', [Validators.required, Validators.minLength(8)]]
     });
     // Validators.pattern('(+d{1,2}s)?(?d{3})?[s.-]d{3}[s.-]d{4}')
   }

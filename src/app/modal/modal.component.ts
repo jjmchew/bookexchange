@@ -7,9 +7,16 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent implements OnInit {
-  @Input() title;
+  @Input() postingpw;
+
+  password;
 
   constructor(public activeModal: NgbActiveModal) {}
 
   ngOnInit() {}
+
+  testfunction() {
+    console.log(this.password);
+    this.activeModal.close('Close click');
+  }
 }

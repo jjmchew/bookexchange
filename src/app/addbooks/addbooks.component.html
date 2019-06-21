@@ -5,6 +5,19 @@
   </div>
   <br />
 
+  <p>Move the mouse over the text below:</p>
+
+  <div class="tooltip">
+    Hover over me
+    <span class="tooltiptext">Tooltip text</span>
+  </div>
+
+  <p>
+    Note that the position of the tooltip text isn't very good. Go back to the
+    tutorial and continue reading on how to position the tooltip in a desirable
+    way.
+  </p>
+
   <div class="inputDiv">
     <form [formGroup]="addBookGroup">
       <div class="rowDiv">
@@ -104,6 +117,32 @@
           id="email"
           name="email"
           placeholder="email@domain.com"
+        />
+      </div>
+
+      <ng-template #tipContent
+        >The password you pick will be required to remove this posting from the
+        website. Note this password in a safe place.
+      </ng-template>
+
+      <div class="rowDiv">
+        <label
+          >Posting Password
+          <span
+            style="color:rgb(157, 164, 175); margin-left: 20px;"
+            placement="right"
+            [ngbTooltip]="tipContent"
+          >
+            What is this?
+          </span>
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="postingpw"
+          id="postingpw"
+          name="postingpw"
+          placeholder="8characters minimum"
         />
       </div>
 
@@ -278,7 +317,34 @@
         <img class="checkmark" src="./assets/checkmark.png" alt="OK" />
       </span>
     </div>
+
+    <div class="rowDivMsg">
+      <span
+        *ngIf="
+          addBookGroup.get('postingpw').errors?.required &&
+          addBookGroup.get('postingpw').touched
+        "
+        [ngClass]="'errorMsg rowDivMsg'"
+      >
+        Please enter a password to authorize removal of your posting
+      </span>
+      <span
+        *ngIf="
+          addBookGroup.get('postingpw').errors?.minLength &&
+          addBookGroup.get('postingpw').touched
+        "
+        [ngClass]="'errorMsg rowDivMsg'"
+      >
+        Please make sure your password is at least 8 characters
+      </span>
+      <span
+        *ngIf="addBookGroup.get('postingpw').valid"
+        [ngClass]="'okayMsg rowDivMsg'"
+      >
+        <img class="checkmark" src="./assets/checkmark.png" alt="OK" />
+      </span>
+    </div>
   </div>
   <!-- close msgDiv -->
 </div>
-<!-- close container -->
+<!-- close mainPageDiv -->

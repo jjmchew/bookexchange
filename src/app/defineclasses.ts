@@ -7,4 +7,5 @@ export class Book {
   contact: string;
   phone: string;
   email: string;
+  postingpw: string;
 }
