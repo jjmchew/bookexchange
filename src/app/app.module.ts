@@ -12,6 +12,7 @@ import { ModalComponent } from './modal/modal.component';
 import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 import { ModalbookdetailsComponent } from './modalbookdetails/modalbookdetails.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [NgbActiveModal],
   bootstrap: [AppComponent],

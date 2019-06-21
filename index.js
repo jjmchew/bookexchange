@@ -16,21 +16,21 @@ app.use(function(req, res, next) {
 });
 
 //create connection for James' online MySQL DB set-up
-var con = mysql.createConnection({
-  host: 'localhost',
-  user: 'jjmchewa_robogarden',
-  password: 'Password123',
-  database: 'jjmchewa_roboproject'
-});
+// var con = mysql.createConnection({
+//   host: 'localhost',
+//   user: 'jjmchewa_robogarden',
+//   password: 'Password123',
+//   database: 'jjmchewa_roboproject'
+// });
 // end James' version
 
 // create connection for Lili's MySQL DB set-up
-// var con = mysql.createConnection({
-// 	host: "localhost",
-// 	user: "root",
-// 	password: "password",
-// 	database: "roboproject"
-//   });
+var con = mysql.createConnection({
+	host: "localhost",
+	user: "root",
+	password: "password",
+	database: "roboproject"
+  });
 
 //make DB connection
 con.connect(function(err) {
