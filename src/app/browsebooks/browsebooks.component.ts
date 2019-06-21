@@ -11,7 +11,7 @@ import { SelectedbookService } from '../selectedbook.service';
   styleUrls: ['./browsebooks.component.css']
 })
 export class BrowsebooksComponent implements OnInit {
-  localbooksArray: Book[];
+  localbooksArray;
   title = 'app';
   selectedBook2;
 
@@ -22,7 +22,13 @@ export class BrowsebooksComponent implements OnInit {
     this.localbooksArray = booksArray;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    var self = this;
+    this.bookService.getData().subscribe(function(data){
+      console.log(data);
+      self.localbooksArray = data;
+    });
+  }
 
   open(bookObj: Book) {
     // this.selectedBook2 = bookObj;

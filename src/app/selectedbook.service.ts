@@ -21,6 +21,14 @@ export class SelectedbookService {
     return this.http.get(this.api_url);
   }
 
+  getBookDetails(id): Observable<any> {
+    return this.http.get(this.api_url + `/${id}`);
+  }
+
+  addItem(item): Observable<any> {
+    return this.http.post<any>(this.api_url, JSON.stringify(item), this.httpOptions);
+  }
+
   getSelectedBook(x: Book) {
     this.selectedBook = x;
   }

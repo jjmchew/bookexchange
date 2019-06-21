@@ -13,6 +13,7 @@ import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 import { ModalbookdetailsComponent } from './modalbookdetails/modalbookdetails.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     ModalComponent,
     BookdetailsComponent,
-    ModalbookdetailsComponent
+    ModalbookdetailsComponent,
+    BookDetailsComponent
   ],
   imports: [
     BrowserModule,
