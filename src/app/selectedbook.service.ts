@@ -27,7 +27,7 @@ export class SelectedbookService {
   }
 
   changeSelectedBookStatus(id): Observable<any> {
-    return this.http.patch(this.apiUrl + `/${id}`);
+    return this.http.patch(this.apiUrl + `/${id}`, '');
   }
 
   addItem(item): Observable<any> {

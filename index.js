@@ -1,24 +1,26 @@
 const express = require('express');
 const app = express();
 const mysql = require('mysql');
+var cors = require('cors');
 
+app.use(cors());
 app.use(express.json());
 // added to match wk3usecase and support post requests to database (without this post requests through postman pass undefined values)
 
-app.use(function(req, res, next) {
+/*app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header(
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content-Type, Accept'
   );
   next();
-});
+});*/
 
 //create connection for James' online MySQL DB set-up.
 var con = mysql.createConnection({
   host: 'localhost',
-  user: 'robogarden',
-  password: 'Password123',
+  user: 'root',
+  password: 'password',
   database: 'roboproject'
 });
 // end James' version

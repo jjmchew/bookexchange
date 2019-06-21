@@ -26,6 +26,9 @@ export class ModalComponent implements OnInit {
   testfunction() {
     console.log(this.password);
     if (this.password === this.selectedBook.postingpw) {
+      this.bookService.changeSelectedBookStatus(this.selectedBook.id).subscribe(data => {
+        console.log(data);
+      });
       console.log('passwords match!!');
     } else {
       console.log(`password don't match!`);
