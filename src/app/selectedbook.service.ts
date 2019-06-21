@@ -8,25 +8,34 @@ import { Observable } from 'rxjs';
 })
 export class SelectedbookService {
   selectedBook: Book;
-  api_url = 'http://localhost:3000/api/books';
+  // NOTE different URL for hosted DB
+  apiUrl = 'http://localhost:3000/api/books';
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type':  'application/json'
+      'Content-Type': 'application/json'
     })
   };
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getData(): Observable<any> {
-    return this.http.get(this.api_url);
+    return this.http.get(this.apiUrl);
   }
 
   getBookDetails(id): Observable<any> {
-    return this.http.get(this.api_url + `/${id}`);
+    return this.http.get(this.apiUrl + `/${id}`);
+  }
+
+  changeSelectedBookStatus(id): Observable<any> {
+    return this.http.patch(this.apiUrl + `/${id}`);
   }
 
   addItem(item): Observable<any> {
-    return this.http.post<any>(this.api_url, JSON.stringify(item), this.httpOptions);
+    return this.http.post<any>(
+      this.apiUrl,
+      JSON.stringify(item),
+      this.httpOptions
+    );
   }
 
   getSelectedBook(x: Book) {

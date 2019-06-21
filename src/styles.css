@@ -5,9 +5,9 @@
 }
 .jch5 {
   font-weight: bold;
-  font-size: 0.9em;
+  font-size: 0.9em !important;
 }
 
 .jch6 {
-  font-size: 0.7em;
+  font-size: 0.7em !important;
 }

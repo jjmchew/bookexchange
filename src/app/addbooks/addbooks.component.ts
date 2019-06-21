@@ -11,7 +11,10 @@ import { SelectedbookService } from '../selectedbook.service';
 export class AddbooksComponent implements OnInit {
   addBookGroup;
 
-  constructor(private formB: FormBuilder, private bookService: SelectedbookService) {
+  constructor(
+    private formB: FormBuilder,
+    private bookService: SelectedbookService
+  ) {
     this.addBookGroup = this.formB.group({
       title: ['', [Validators.required]],
       author: [
@@ -35,7 +38,9 @@ export class AddbooksComponent implements OnInit {
         ]
       ],
       email: ['', [Validators.required, Validators.email]],
-      postingpw: ['', [Validators.required, Validators.minLength(8)]]
+      postingpw: ['', [Validators.required, Validators.minLength(8)]],
+      abstract: [''],
+      status: ['']
     });
     // Validators.pattern('(+d{1,2}s)?(?d{3})?[s.-]d{3}[s.-]d{4}')
   }
@@ -43,9 +48,10 @@ export class AddbooksComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
+    this.addBookGroup.status = 'active';
     this.bookService.addItem(this.addBookGroup.value).subscribe(data => {
       console.log(data);
     });
-    //console.log(this.addBookGroup.value);
+    // console.log(this.addBookGroup.value);
   }
 }

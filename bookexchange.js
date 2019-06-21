@@ -5,21 +5,22 @@ const mysql = require('mysql');
 app.use(express.json());
 // added to match wk3usecase and support post requests to database (without this post requests through postman pass undefined values)
 
-app.use(function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept'
-  );
-  next();
-});
+// app.use(function(req, res, next) {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header(
+//     'Access-Control-Allow-Headers',
+//     'Origin, X-Requested-With, Content-Type, Accept'
+//   );
+//   next();
+// });
 
 //create connection for James' online MySQL DB set-up.
+//    NOTE:  also need to change the port settings at end of this file (port 3306 for James)
 var con = mysql.createConnection({
   host: 'localhost',
-  user: 'robogarden',
+  user: 'jjmchewa_robogarden',
   password: 'Password123',
-  database: 'roboproject'
+  database: 'jjmchewa_roboproject'
 });
 // end James' version
 
@@ -38,7 +39,7 @@ con.connect(function(err) {
 });
 
 app.get('/api/books', function(req, res) {
-  var sql = `SELECT * FROM books where status='active'`;
+  var sql = 'SELECT * FROM books';
   con.query(sql, function(err, result, fields) {
     if (err) throw err;
     console.log(result);
@@ -49,16 +50,6 @@ app.get('/api/books', function(req, res) {
 app.get('/api/books/:id', function(req, res) {
   var id = req.params.id;
   var sql = `SELECT * FROM books Where id=${id}`;
-  con.query(sql, function(err, result, fields) {
-    if (err) throw err;
-    console.log(result);
-    res.send(result[0]);
-  });
-});
-
-app.patch('/api/books/:id', function(req, res) {
-  var id = req.params.id;
-  var sql = `update books set status='closed' where id=${id}`;
   con.query(sql, function(err, result, fields) {
     if (err) throw err;
     console.log(result);
@@ -86,9 +77,8 @@ app.post('/api/books', function(req, res) {
   var email = req.body.email;
   var postingpw = req.body.postingpw;
   var abstract = req.body.abstract;
-  var status = 'active';
   var sql =
-    `INSERT INTO books (title, author, publishdate, category, coversrc, contact, phone, email, postingpw, abstract, status) VALUES ('` +
+    `INSERT INTO books (title, author, publishdate, category, coversrc, contact, phone, email, postingpw, abstract) VALUES ('` +
     title +
     `','` +
     author +
@@ -108,8 +98,6 @@ app.post('/api/books', function(req, res) {
     postingpw +
     `','` +
     abstract +
-    `','` +
-    status +
     `');`;
   // end James' version
 
@@ -127,7 +115,12 @@ app.post('/api/books', function(req, res) {
 // ----end Lili's DB settings
 
 // James' DB settings - note different port
-app.listen(3000, function() {
-  console.log('Server is running on port 3000');
+console.log('The Current Environment now is ');
+console.log(app.get('env'));
+console.log(process.env.NODE_ENV);
+
+app.listen(process.env.PORT || 8090, '0,0,0,0', function() {
+  console.log('Server is running on port: ');
+  console.log(process.env.PORT);
 });
 // --------end James' DB settings

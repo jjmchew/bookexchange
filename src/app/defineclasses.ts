@@ -1,4 +1,5 @@
 export class Book {
+  id: number;
   title: string;
   author: string;
   publishdate: number;
@@ -8,4 +9,6 @@ export class Book {
   phone: string;
   email: string;
   postingpw: string;
+  abstract: string;
+  status: string;
 }
