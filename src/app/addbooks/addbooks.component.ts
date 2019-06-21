@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Book } from '../defineclasses';
+import { SelectedbookService } from '../selectedbook.service';
 
 @Component({
   selector: 'app-addbooks',
@@ -9,9 +10,8 @@ import { Book } from '../defineclasses';
 })
 export class AddbooksComponent implements OnInit {
   addBookGroup;
-  enteredBook: Book;
 
-  constructor(private formB: FormBuilder) {
+  constructor(private formB: FormBuilder, private bookService: SelectedbookService) {
     this.addBookGroup = this.formB.group({
       title: ['', [Validators.required]],
       author: [
@@ -43,7 +43,9 @@ export class AddbooksComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
-    this.enteredBook = this.addBookGroup;
-    console.log(this.enteredBook);
+    this.bookService.addItem(this.addBookGroup.value).subscribe(data => {
+      console.log(data);
+    });
+    //console.log(this.addBookGroup.value);
   }
 }

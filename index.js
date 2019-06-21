@@ -4,7 +4,6 @@ const mysql = require('mysql');
 
 app.use(express.json());
 // added to match wk3usecase and support post requests to database (without this post requests through postman pass undefined values)
-app.use(express.urlencoded({ extended: true }));
 
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -16,21 +15,21 @@ app.use(function(req, res, next) {
 });
 
 //create connection for James' online MySQL DB set-up
-var con = mysql.createConnection({
-  host: 'localhost',
-  user: 'jjmchewa_robogarden',
-  password: 'Password123',
-  database: 'jjmchewa_roboproject'
-});
+// var con = mysql.createConnection({
+//   host: 'localhost',
+//   user: 'jjmchewa_robogarden',
+//   password: 'Password123',
+//   database: 'jjmchewa_roboproject'
+// });
 // end James' version
 
 // create connection for Lili's MySQL DB set-up
-// var con = mysql.createConnection({
-// 	host: "localhost",
-// 	user: "root",
-// 	password: "password",
-// 	database: "roboproject"
-//   });
+var con = mysql.createConnection({
+	host: "localhost",
+	user: "root",
+	password: "password",
+	database: "roboproject"
+  });
 
 //make DB connection
 con.connect(function(err) {
@@ -47,7 +46,17 @@ app.get('/api/books', function(req, res) {
   });
 });
 
-app.post('/api/addbook', function(req, res) {
+app.get('/api/books/:id', function(req, res) {
+  var id = req.params.id;
+  var sql = `SELECT * FROM books Where id=${id}`;
+  con.query(sql, function(err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+    res.send(result[0]);
+  });
+});
+
+app.post('/api/books', function(req, res) {
   //   Lili's version:
   //   var formdata = req.body;
   // 	console.log(formdata);
