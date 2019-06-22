@@ -1,9 +1,16 @@
-<div role="document" class="modal-dialog">
+<div role="document" class="modal-dialog modal-lg">
   <div class="modal-content">
     <div class="modal-header">
-      <h6 class="modal-title">
-        Contact the person below to arrange a book exchange
-      </h6>
+      <div *ngIf="browseBooks; else elseBlock">
+        <h6 class="modal-title">
+          Contact the person below to arrange a book exchange
+        </h6>
+      </div>
+      <ng-template #elseBlock>
+        <h6 class="modal-title">
+          You have just posted the following book entry to the book exchange
+        </h6>
+      </ng-template>
       <button
         type="button"
         class="close"
@@ -17,51 +24,60 @@
       <ng-content></ng-content>
     </div>
 
-    <div class="modal-footer">
-      <!-- start dropdown -->
+    <div *ngIf="browseBooks === false" style="text-align:center">
+      Please write down your password to remove your posting:
+      <b>{{ selectedBook.postingpw }}</b>
+    </div>
 
-      <div class="row">
-        <div class="col">
-          <div ngbDropdown class="d-inline-block">
-            <button
-              class="btn btn-outline-primary"
-              id="dropdownForm1"
-              ngbDropdownToggle
-              style="font-size: .8em;"
-            >
-              Remove Posting
-            </button>
-            <div ngbDropdownMenu aria-labelledby="dropdownForm1">
-              <!-- <form class="px-4 py-3"> -->
-              <div class="form-group">
-                <label for="postingpw" style="font-size: .8em;"
-                  >Posting Password</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="postingpw"
-                  placeholder="posting password here"
-                  style="font-size: .8em;"
-                  [(ngModel)]="password"
-                />
-              </div>
-
+    <div *ngIf="browseBooks">
+      <div class="modal-footer">
+        <!-- start dropdown -->
+        <div class="row">
+          <div class="col">
+            <div ngbDropdown class="d-inline-block">
               <button
-                type="submit"
-                class="btn btn-primary"
-                (click)="testfunction()"
-                style="font-size: .8em;"
+                class="btn btn-outline-primary"
+                id="dropdownForm1"
+                ngbDropdownToggle
+                style="font-size: .8em; margin-left:1%;"
               >
-                Confirm
+                Remove Posting
               </button>
-              <!-- </form> -->
+              <div
+                ngbDropdownMenu
+                aria-labelledby="dropdownForm1"
+                style="padding:1%"
+              >
+                <!-- <form class="px-4 py-3"> -->
+                <div class="form-group">
+                  <label for="postingpw" style="font-size: .8em;"
+                    >Posting Password</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="postingpw"
+                    placeholder="enter password here"
+                    style="font-size: .8em;"
+                    [(ngModel)]="password"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  (click)="submitRemove()"
+                  style="font-size: .8em;"
+                >
+                  Confirm Removal
+                </button>
+                <!-- </form> -->
+              </div>
             </div>
           </div>
         </div>
+        <!-- end dropdown -->
       </div>
-
-      <!-- end dropdown -->
     </div>
     <!-- close modal-footer -->
   </div>

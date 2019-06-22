@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../defineclasses';
-import { booksArray } from '../definedata';
+// import { booksArray } from '../definedata';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalbookdetailsComponent } from '../modalbookdetails/modalbookdetails.component';
 import { SelectedbookService } from '../selectedbook.service';
@@ -19,22 +19,27 @@ export class BrowsebooksComponent implements OnInit {
     private modalService: NgbModal,
     private bookService: SelectedbookService
   ) {
-    this.localbooksArray = booksArray;
+    // this.localbooksArray = booksArray;
   }
 
   ngOnInit() {
     var self = this;
-    this.bookService.getData().subscribe(function(data){
+    this.bookService.getData().subscribe(function(data) {
       console.log(data);
       self.localbooksArray = data;
     });
+
+    // this.bookService.getData().subscribe(function(data) {
+    //   console.log(data);
+    //   this.localbooksArray = data;
+    // });
   }
 
   open(bookObj: Book) {
-    // this.selectedBook2 = bookObj;
-    // this.Modalbookdetails.assignBook(bookObj);
-    this.bookService.getSelectedBook(bookObj);
-    const modalRef = this.modalService.open(ModalbookdetailsComponent);
+    this.bookService.getSelectedBook(bookObj, true);
+    const modalRef = this.modalService.open(ModalbookdetailsComponent, {
+      size: 'lg'
+    });
     modalRef.componentInstance.title = 'from browsebooks';
   }
 }

@@ -5,7 +5,6 @@ var cors = require('cors');
 
 app.use(cors());
 app.use(express.json());
-// added to match wk3usecase and support post requests to database (without this post requests through postman pass undefined values)
 
 /*app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -16,22 +15,12 @@ app.use(express.json());
   next();
 });*/
 
-//create connection for James' online MySQL DB set-up.
 var con = mysql.createConnection({
   host: 'localhost',
-  user: 'root',
-  password: 'password',
+  user: 'robogarden',
+  password: 'Password123',
   database: 'roboproject'
 });
-// end James' version
-
-// create connection for Lili's MySQL DB set-up
-// var con = mysql.createConnection({
-// 	host: "localhost",
-// 	user: "root",
-// 	password: "password",
-// 	database: "roboproject"
-//   });
 
 //make DB connection
 con.connect(function(err) {
@@ -69,15 +58,6 @@ app.patch('/api/books/:id', function(req, res) {
 });
 
 app.post('/api/books', function(req, res) {
-  //   Lili's version:
-  //   var formdata = req.body;
-  // 	console.log(formdata);
-  // 	var sql = `INSERT INTO books (title, author, publishdate, category, coversrc, contact, phone, email) VALUES ('${formdata.title}', '${formdata.author}','${formdata.publishdate}', '${formdata.category}','${formdata.coversrc}','${formdata.contact}', '${formdata.phone}','${formdata.email}')`;
-
-  //   James' version:   mirrors wk3usecase
-  //   updated to troubleshoot post requests (previously not working)
-  //   root problem may have been lack of urlencoded addition at top
-
   var title = req.body.title;
   var author = req.body.author;
   var publishdate = req.body.publishdate;
@@ -113,7 +93,6 @@ app.post('/api/books', function(req, res) {
     `','` +
     status +
     `');`;
-  // end James' version
 
   console.log(sql);
   con.query(sql, function(err, result) {
@@ -122,14 +101,6 @@ app.post('/api/books', function(req, res) {
   });
 });
 
-// Lili's DB settings (note different port)
-// app.listen(3000, function() {
-//   console.log('Server is running on port 3000');
-// });
-// ----end Lili's DB settings
-
-// James' DB settings - note different port
 app.listen(3000, function() {
   console.log('Server is running on port 3000');
 });
-// --------end James' DB settings

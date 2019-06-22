@@ -8,8 +8,11 @@ import { Observable } from 'rxjs';
 })
 export class SelectedbookService {
   selectedBook: Book;
+  fromBrowseBooks: boolean;
+
   // NOTE different URL for hosted DB
-  apiUrl = 'http://localhost:3000/api/books';
+  // apiUrl = 'http://localhost:3000/api/books';
+  apiUrl = 'http://jjmchew.a2hosted.com/api/books';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -38,11 +41,16 @@ export class SelectedbookService {
     );
   }
 
-  getSelectedBook(x: Book) {
+  getSelectedBook(x: Book, browseBooks: boolean) {
     this.selectedBook = x;
+    this.fromBrowseBooks = browseBooks;
   }
 
   giveSelectedBook() {
     return this.selectedBook;
+  }
+
+  giveModalSource() {
+    return this.fromBrowseBooks;
   }
 }

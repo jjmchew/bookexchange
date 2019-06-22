@@ -1,24 +1,24 @@
 .imgDiv {
-  width: 30%;
+  width: 20%;
   height: auto;
   float: left;
   margin: 1%;
 }
 
 .info-1 {
-  width: 66%;
+  width: 76%;
   float: left;
 }
 
 .info-header {
-  width: 30%;
+  width: 20%;
   float: left;
   font-style: normal;
 }
 
 .info-data {
   font-weight: bold;
-  width: 65%;
+  width: 76%;
   float: left;
 }
 
