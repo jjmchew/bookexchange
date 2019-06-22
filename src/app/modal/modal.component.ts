@@ -39,15 +39,14 @@ export class ModalComponent implements OnInit {
         });
       this.confService.giveMessage('Posting Removed');
       // this.modalService.open(ModalconfirmationComponent);
-      console.log('passwords match!!');
+
       this.activeModal.close('Close click');
       window.location.reload();
     } else {
       this.confService.giveMessage(
-        `Sorry, the password entered doesn't match our records.  Please try again or email sysadmin@bookexchange.com if you really want to remove this posting.`
+        `Sorry, what you entered doesn't match our records. Please try again or email sysadmin@bookexchange.com to remove this posting.`
       );
       this.modalService.open(ModalconfirmationComponent);
-      console.log(`passwords don't match!`);
     }
   }
 }

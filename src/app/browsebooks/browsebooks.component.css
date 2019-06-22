@@ -27,20 +27,19 @@
 
 .grid {
   box-sizing: border-box;
-  height: 20px;
+  overflow: hidden;
   padding: 1%;
   float: left;
   margin: 1%;
   /* padding-bottom: 10%; */
   outline: 1px solid rgb(218, 227, 243);
-  height: auto;
-  /* overflow: hidden; */
   font-family: 'Roboto', sans-serif;
 }
 
 .m-grid-2 {
   width: 48%;
   float: left;
+  overflow: hidden;
 }
 
 .img-m {
@@ -69,6 +68,7 @@
   .sm-grid-1 {
     width: 100%;
     float: left;
+    overflow: hidden;
   }
   .img-sm {
     width: 45%;
@@ -85,6 +85,7 @@
   .d-grid-4 {
     width: 23%;
     float: left;
+    overflow: hidden;
   }
 
   .img-d {

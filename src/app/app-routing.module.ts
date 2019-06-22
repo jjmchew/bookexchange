@@ -9,12 +9,16 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'browsebooks', component: BrowsebooksComponent },
   { path: 'addbooks', component: AddbooksComponent },
-  { path: 'bookdetails/:id', component: BookDetailsComponent},
+  { path: 'bookdetails/:id', component: BookDetailsComponent },
   { path: '**', component: HomeComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      onSameUrlNavigation: 'reload'
+    })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

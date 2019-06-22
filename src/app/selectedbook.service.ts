@@ -11,7 +11,8 @@ export class SelectedbookService {
   fromBrowseBooks: boolean;
 
   // NOTE different URL for hosted DB
-  apiUrl = 'http://localhost:3000/api/books';
+  // apiUrl = 'http://localhost:3000/api/books';
+  apiUrl = 'http://jjmchew.a2hosted.com/api/books';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
