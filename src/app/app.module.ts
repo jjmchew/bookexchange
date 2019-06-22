@@ -14,6 +14,7 @@ import { ModalbookdetailsComponent } from './modalbookdetails/modalbookdetails.c
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { ModalconfirmationComponent } from './modalconfirmation/modalconfirmation.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { BookDetailsComponent } from './book-details/book-details.component';
     ModalComponent,
     BookdetailsComponent,
     ModalbookdetailsComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    ModalconfirmationComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,6 @@ import { BookDetailsComponent } from './book-details/book-details.component';
   ],
   providers: [NgbActiveModal],
   bootstrap: [AppComponent],
-  entryComponents: [ModalbookdetailsComponent]
+  entryComponents: [ModalbookdetailsComponent, ModalconfirmationComponent]
 })
 export class AppModule {}

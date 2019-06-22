@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class SelectedbookService {
   selectedBook: Book;
+  fromBrowseBooks: boolean;
+
   // NOTE different URL for hosted DB
   apiUrl = 'http://localhost:3000/api/books';
   httpOptions = {
@@ -38,11 +40,16 @@ export class SelectedbookService {
     );
   }
 
-  getSelectedBook(x: Book) {
+  getSelectedBook(x: Book, browseBooks: boolean) {
     this.selectedBook = x;
+    this.fromBrowseBooks = browseBooks;
   }
 
   giveSelectedBook() {
     return this.selectedBook;
+  }
+
+  giveModalSource() {
+    return this.fromBrowseBooks;
   }
 }

@@ -9,7 +9,9 @@
       *ngFor="let book of localbooksArray"
       (click)="open(book)"
     >
-      <img class="img-m img-d" src="{{ book.coversrc }}" />
+      <div class="img-m img-d img-sm">
+        <img class="imgClass" src="{{ book.coversrc }}" />
+      </div>
       <div class="jch5">{{ book.title }}</div>
       <h6 class="jch6">by {{ book.author }}</h6>
       <h6 class="jch6 bookCategory">{{ book.category }}</h6>

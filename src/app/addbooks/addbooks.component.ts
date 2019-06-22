@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Book } from '../defineclasses';
 import { SelectedbookService } from '../selectedbook.service';
+import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalbookdetailsComponent } from '../modalbookdetails/modalbookdetails.component';
+import { Routes, RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-addbooks',
@@ -13,13 +15,18 @@ export class AddbooksComponent implements OnInit {
 
   constructor(
     private formB: FormBuilder,
-    private bookService: SelectedbookService
+    private modalService: NgbModal,
+    private bookService: SelectedbookService,
+    private routerService: Router
   ) {
     this.addBookGroup = this.formB.group({
       title: ['', [Validators.required]],
       author: [
         '',
-        [Validators.required, Validators.pattern('[a-zA-Z-]*[ ]+[a-zA-Z-]')]
+        [
+          Validators.required,
+          Validators.pattern('[a-zA-Z-]*[ ]+[a-zA-Z-][a-zA-Z]*')
+        ]
       ],
       publishdate: [
         '',
@@ -48,10 +55,20 @@ export class AddbooksComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
-    this.addBookGroup.status = 'active';
+    this.addBookGroup.value.status = 'active';
+    if (!this.addBookGroup.value.coversrc) {
+      this.addBookGroup.value.coversrc = 'http://placehold.it/313x475';
+    }
+
     this.bookService.addItem(this.addBookGroup.value).subscribe(data => {
-      console.log(data);
+      // console.log(data);
     });
-    // console.log(this.addBookGroup.value);
+
+    this.bookService.getSelectedBook(this.addBookGroup.value, false);
+    const modalRef = this.modalService.open(ModalbookdetailsComponent, {
+      size: 'lg'
+    });
+    modalRef.componentInstance.title = 'from browsebooks';
+    this.routerService.navigateByUrl('/browsebooks');
   }
 }
