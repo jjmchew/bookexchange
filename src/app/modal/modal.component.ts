@@ -16,7 +16,7 @@ export class ModalComponent implements OnInit {
   selectedBook: Book;
   browseBooks: boolean;
   password;
-  loading: boolean = false;
+  loading = false;
 
   constructor(
     private modalService: NgbModal,
@@ -43,7 +43,8 @@ export class ModalComponent implements OnInit {
           .then(
             res => {
               this.activeModal.close('Close click');
-              window.location.reload();
+              window.location.href =
+                'http://jjmchew.a2hosted.com/bookexchange/index.html';
               this.loading = false;
             },
             msg => reject(msg)

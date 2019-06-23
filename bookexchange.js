@@ -19,6 +19,10 @@ con.connect(function(err) {
   console.log('Database Connected!');
 });
 
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/../bookexchange/index.html'));
+});
+
 app.get('/api/books', function(req, res) {
   var sql = `SELECT * FROM books where status='active'`;
   con.query(sql, function(err, result, fields) {
