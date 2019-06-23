@@ -60,15 +60,22 @@ export class AddbooksComponent implements OnInit {
       this.addBookGroup.value.coversrc = 'http://placehold.it/313x475';
     }
 
-    this.bookService.addItem(this.addBookGroup.value).subscribe(data => {
-      // console.log(data);
+    const promise = new Promise((resolve, reject) => {
+      this.bookService
+        .addItem(this.addBookGroup.value)
+        .toPromise()
+        .then(
+          res => {
+            this.bookService.getSelectedBook(this.addBookGroup.value, false);
+            const modalRef = this.modalService.open(ModalbookdetailsComponent, {
+              size: 'lg'
+            });
+            modalRef.componentInstance.title = 'from browsebooks';
+            this.routerService.navigateByUrl('/browsebooks');
+            // window.location.reload();
+          },
+          msg => reject(msg)
+        );
     });
-
-    this.bookService.getSelectedBook(this.addBookGroup.value, false);
-    const modalRef = this.modalService.open(ModalbookdetailsComponent, {
-      size: 'lg'
-    });
-    modalRef.componentInstance.title = 'from browsebooks';
-    this.routerService.navigateByUrl('/browsebooks');
   }
 }

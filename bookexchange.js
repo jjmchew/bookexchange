@@ -58,37 +58,18 @@ app.post('/api/books', function(req, res) {
   var phone = req.body.phone;
   var email = req.body.email;
   var postingpw = req.body.postingpw;
-  var abstract = req.body.abstract;
-  var status = 'active';
-  var sql =
-    `INSERT INTO books (title, author, publishdate, category, coversrc, contact, phone, email, postingpw, abstract, status) VALUES ('` +
-    title +
-    `','` +
-    author +
-    `','` +
-    publishdate +
-    `','` +
-    category +
-    `','` +
-    coversrc +
-    `','` +
-    contact +
-    `','` +
-    phone +
-    `','` +
-    email +
-    `','` +
-    postingpw +
-    `','` +
-    abstract +
-    `','` +
-    status +
-    `');`;
+  var tempabstract = req.body.abstract;
+  // need to escape apostrophes that may be entered in the abstract (replace all ' with '')
+  var abstract = tempabstract.replace(/'/gi, `''`);
 
+  var status = 'active';
+
+  var sql = `INSERT INTO books (title, author, publishdate, category, coversrc, contact, phone, email, postingpw, abstract, status) VALUES ('${title}','${author}','${publishdate}','${category}','${coversrc}','${contact}','${phone}','${email}','${postingpw}','${abstract}','${status}')`;
   console.log(sql);
-  con.query(sql, function(err, result) {
+  con.query(sql, function(err, result, fields) {
     if (err) throw err;
-    res.send(result);
+    console.log(result);
+    res.send(result[0]);
   });
 });
 

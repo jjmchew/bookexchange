@@ -16,6 +16,7 @@ export class ModalComponent implements OnInit {
   selectedBook: Book;
   browseBooks: boolean;
   password;
+  loading: boolean = false;
 
   constructor(
     private modalService: NgbModal,
@@ -31,17 +32,23 @@ export class ModalComponent implements OnInit {
 
   submitRemove() {
     console.log(this.password);
+    console.log(this.selectedBook.postingpw);
     if (this.password === this.selectedBook.postingpw) {
-      this.bookService
-        .changeSelectedBookStatus(this.selectedBook.id)
-        .subscribe(data => {
-          console.log(data);
-        });
-      this.confService.giveMessage('Posting Removed');
-      // this.modalService.open(ModalconfirmationComponent);
-
-      this.activeModal.close('Close click');
-      window.location.reload();
+      // use promise to ensure book status is updated in DB before re-loading window to show removed book
+      const promise = new Promise((resolve, reject) => {
+        this.loading = true;
+        this.bookService
+          .changeSelectedBookStatus(this.selectedBook.id)
+          .toPromise()
+          .then(
+            res => {
+              this.activeModal.close('Close click');
+              window.location.reload();
+              this.loading = false;
+            },
+            msg => reject(msg)
+          );
+      });
     } else {
       this.confService.giveMessage(
         `Sorry, what you entered doesn't match our records. Please try again or email sysadmin@bookexchange.com to remove this posting.`

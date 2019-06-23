@@ -33,6 +33,14 @@ export class SelectedbookService {
     return this.http.patch(this.apiUrl + `/${id}`, '');
   }
 
+  // changeSelectedBookStatus(id) {
+  //   console.log('entered book service');
+  //   const promise = new Promise((resolve, reject) => {
+  //     this.http.patch(this.apiUrl + `/${id}`, '');
+  //   });
+  //   return promise;
+  // }
+
   addItem(item): Observable<any> {
     return this.http.post<any>(
       this.apiUrl,

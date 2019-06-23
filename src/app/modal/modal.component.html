@@ -24,6 +24,10 @@
       <ng-content></ng-content>
     </div>
 
+    <div class="text-center">
+      <p class="lead" *ngIf="loading">Loading...</p>
+    </div>
+
     <div *ngIf="browseBooks === false" style="text-align:center">
       Please write down your password to remove your posting:
       <b>{{ selectedBook.postingpw }}</b>

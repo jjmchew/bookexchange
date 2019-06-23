@@ -1,14 +1,14 @@
 <div class="container">
   <div class="pageHeading">
     Post your book online
-    <span class="comment">All fields are required</span>
+    <span class="comment">Fields with * are required</span>
   </div>
   <br />
 
   <div class="inputDiv">
     <form [formGroup]="addBookGroup">
       <div class="rowDiv">
-        <label for="title">Title</label>
+        <label for="title">* Title</label>
 
         <input
           type="text"
@@ -21,7 +21,7 @@
       </div>
 
       <div class="rowDiv">
-        <label for="author">Author</label>
+        <label for="author">* Author</label>
 
         <input
           type="text"
@@ -34,7 +34,7 @@
       </div>
 
       <div class="rowDiv">
-        <label for="publishdate">Year Published</label>
+        <label for="publishdate">* Year Published</label>
         <input
           type="text"
           class="form-control"
@@ -46,7 +46,7 @@
       </div>
 
       <div class="rowDiv">
-        <label>Book Category</label>
+        <label>* Book Category</label>
         <select
           class="form-control"
           formControlName="category"
@@ -84,7 +84,7 @@
       <div class="spacerRow"><hr /></div>
 
       <div class="rowDiv">
-        <label for="contact">Contact name for online posting</label>
+        <label for="contact">* Contact name for online posting</label>
         <input
           type="text"
           class="form-control"
@@ -96,7 +96,7 @@
       </div>
 
       <div class="rowDiv">
-        <label>Phone number</label>
+        <label>* Phone number</label>
         <input
           type="text"
           class="form-control"
@@ -108,7 +108,7 @@
       </div>
 
       <div class="rowDiv">
-        <label>Email</label>
+        <label>* Email</label>
         <input
           type="text"
           class="form-control"
@@ -121,12 +121,12 @@
 
       <ng-template #tipContent
         >The password you pick will be required to remove this posting from the
-        website. Note this password in a safe place.
+        website. Please note this password in a safe place.
       </ng-template>
 
       <div class="rowDiv">
         <label
-          >Posting Password
+          >* Posting Password
           <span
             style="color:rgb(157, 164, 175); margin-left: 20px;"
             placement="right"
