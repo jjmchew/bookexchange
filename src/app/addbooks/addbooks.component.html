@@ -1,13 +1,12 @@
-<div class="container">
+<div class="mainInputForm">
   <div class="pageHeading">
     Post your book online
     <span class="comment">Fields with * are required</span>
   </div>
-  <br />
 
-  <div class="inputDiv">
-    <form [formGroup]="addBookGroup">
-      <div class="rowDiv">
+  <form [formGroup]="addBookGroup">
+    <div class="jcGridContainer jcGridContainer-sm">
+      <div class="l-title s-title l-spacing s-spacing">
         <label for="title">* Title</label>
 
         <input
@@ -20,7 +19,7 @@
         />
       </div>
 
-      <div class="rowDiv">
+      <div class="l-author s-author l-spacing s-spacing">
         <label for="author">* Author</label>
 
         <input
@@ -33,7 +32,7 @@
         />
       </div>
 
-      <div class="rowDiv">
+      <div class="l-year s-year l-spacing s-spacing">
         <label for="publishdate">* Year Published</label>
         <input
           type="text"
@@ -45,7 +44,7 @@
         />
       </div>
 
-      <div class="rowDiv">
+      <div class="l-cat s-cat l-spacing s-spacing">
         <label>* Book Category</label>
         <select
           class="form-control"
@@ -57,7 +56,7 @@
         </select>
       </div>
 
-      <div class="rowDiv">
+      <div class="l-coverimg s-coverimg l-spacing s-spacing">
         <label for="coversrc">Cover Image</label>
         <input
           type="text"
@@ -69,21 +68,23 @@
         />
       </div>
 
-      <div class="rowDiv">
+      <div class="l-desc s-desc l-spacing s-spacing">
         <label for="abstract">Book description</label>
-        <input
+        <textarea
+          style="height: 4em;"
           type="text"
           class="form-control"
           id="abstract"
           formControlName="abstract"
           name="abstract"
           placeholder="1000 characters or less"
-        />
+        >
+        </textarea>
       </div>
 
-      <div class="spacerRow"><hr /></div>
+      <div class="l-spacerRow s-spacerRow"><hr /></div>
 
-      <div class="rowDiv">
+      <div class="l-contact s-contact l-spacing s-spacing">
         <label for="contact">* Contact name for online posting</label>
         <input
           type="text"
@@ -95,7 +96,7 @@
         />
       </div>
 
-      <div class="rowDiv">
+      <div class="l-phone s-phone l-spacing s-spacing">
         <label>* Phone number</label>
         <input
           type="text"
@@ -107,7 +108,7 @@
         />
       </div>
 
-      <div class="rowDiv">
+      <div class="l-email s-email l-spacing s-spacing">
         <label>* Email</label>
         <input
           type="text"
@@ -124,7 +125,7 @@
         website. Please note this password in a safe place.
       </ng-template>
 
-      <div class="rowDiv">
+      <div class="l-pw s-pw l-spacing s-spacing">
         <label
           >* Posting Password
           <span
@@ -141,210 +142,202 @@
           formControlName="postingpw"
           id="postingpw"
           name="postingpw"
-          placeholder="8characters minimum"
+          placeholder="8 characters minimum"
         />
       </div>
 
-      <br />
-      <button
-        type="submit"
-        [disabled]="!addBookGroup.valid"
-        (click)="onSubmit()"
-      >
-        Post Online
-      </button>
+      <div class="l-btn s-btn l-spacing s-spacing">
+        <button
+          type="submit"
+          [disabled]="!addBookGroup.valid"
+          (click)="onSubmit()"
+        >
+          Post Online
+        </button>
+      </div>
 
-      <div class="rowDiv"></div>
-    </form>
-  </div>
-  <!-- close inputDiv -->
-
-  <div class="msgDiv">
-    <br />
-    <div class="rowDivMsg">
-      <span
+      <!-- ----------------begin responsive input messages -------------------------->
+      <!-- for large screen, okMsg and errorMsg go in grid "OK" -->
+      <!-- for small sreens, okMsg goes in grid "OK", errorMsg go in grid "Msg" -->
+      <div
+        class="l-titleOK s-titleMsg errorMsg l-spacingOK s-spacingMsg"
         *ngIf="
           addBookGroup.get('title').errors?.required &&
           addBookGroup.get('title').touched
         "
-        [ngClass]="'rowDivMsg errorMsg'"
       >
         Please enter book title
-      </span>
-      <span
+      </div>
+
+      <div
+        class="l-titleOK s-titleOK okMsg l-spacingOK s-spacingOK"
         *ngIf="addBookGroup.get('title').valid"
-        [ngClass]="'rowDivMsg okayMsg'"
       >
         <img class="checkmark" src="./assets/checkmark.png" alt="OK" />
-      </span>
-    </div>
+      </div>
 
-    <div class="rowDivMsg">
-      <span
+      <div
+        class="l-authorOK s-authorMsg errorMsg l-spacingOK s-spacingMsg"
         *ngIf="
           addBookGroup.get('author').errors?.required &&
           addBookGroup.get('author').touched
         "
-        [ngClass]="'rowDivMsg errorMsg'"
       >
         Please enter book's author name
-      </span>
-      <span
+      </div>
+
+      <div
+        class="l-authorOK s-authorMsg errorMsg l-spacingOK s-spacingMsg"
         *ngIf="
           addBookGroup.get('author').errors?.pattern &&
           addBookGroup.get('author').touched
         "
-        [ngClass]="'rowDivMsg errorMsg'"
       >
         Please enter a first and last name
-      </span>
-      <span
+      </div>
+
+      <div
+        class="okMsg l-authorOK s-authorOK l-spacingOK s-spacingOK"
         *ngIf="addBookGroup.get('author').valid"
-        [ngClass]="'rowDivMsg okayMsg'"
       >
         <img class="checkmark" src="./assets/checkmark.png" alt="OK" />
-      </span>
-    </div>
+      </div>
 
-    <div class="rowDivMsg">
-      <span
+      <div
+        class="errorMsg l-yearOK s-yearMsg l-spacingOK s-spacingMsg"
         *ngIf="
           addBookGroup.get('publishdate').errors?.required &&
           addBookGroup.get('publishdate').touched
         "
-        [ngClass]="'rowDivMsg errorMsg'"
       >
         Please enter publishing date of book
-      </span>
-      <span
+      </div>
+
+      <div
+        class="errorMsg l-yearOK s-yearMsg l-spacingOK s-spacingMsg"
         *ngIf="
           addBookGroup.get('publishdate').errors?.pattern &&
           addBookGroup.get('publishdate').touched
         "
-        [ngClass]="'rowDivMsg errorMsg'"
       >
         Please check publishing date of book
-      </span>
-      <span
+      </div>
+
+      <div
+        class="okMsg l-yearOK s-yearOK  l-spacingOK s-spacingOK"
         *ngIf="addBookGroup.get('publishdate').valid"
-        [ngClass]="'okayMsg rowDivMsg'"
       >
         <img class="checkmark" src="./assets/checkmark.png" alt="OK" />
-      </span>
-    </div>
+      </div>
 
-    <div class="rowDivMsg">
-      <span
+      <div
+        class="l-catOK s-catMsg errorMsg l-spacingOK s-spacingMsg"
         *ngIf="
           addBookGroup.get('category').errors?.required &&
           addBookGroup.get('category').touched
         "
-        [ngClass]="'errorMsg rowDivMsg'"
       >
         Please select book category from drop-down
-      </span>
-      <span
+      </div>
+      <div
+        class="okMsg l-catOK s-catOK  l-spacingOK s-spacingOK"
         *ngIf="addBookGroup.get('category').valid"
-        [ngClass]="'okayMsg rowDivMsg'"
       >
         <img class="checkmark" src="./assets/checkmark.png" alt="OK" />
-      </span>
-    </div>
+      </div>
 
-    <div class="rowDivMsg"></div>
-    <div class="rowDivMsg"></div>
-    <div class="spacerRow"></div>
+      <div></div>
+      <div></div>
+      <div class="spacerRow" style="grid-area: spacerOK"></div>
 
-    <div class="rowDivMsg">
-      <span
+      <div
+        class="l-contactOK s-contactMsg errorMsg l-spacingOK s-spacingMsg"
         *ngIf="
           addBookGroup.get('contact').errors?.required &&
           addBookGroup.get('contact').touched
         "
-        [ngClass]="'errorMsg rowDivMsg'"
       >
         Please enter contact name for exchange
-      </span>
-      <span
+      </div>
+
+      <div
+        class="okMsg l-contactOK s-contactOK  l-spacingOK s-spacingOK"
         *ngIf="addBookGroup.get('contact').valid"
-        [ngClass]="'okayMsg rowDivMsg'"
       >
         <img class="checkmark" src="./assets/checkmark.png" alt="OK" />
-      </span>
-    </div>
+      </div>
 
-    <div class="rowDivMsg">
-      <span
+      <div
+        class="l-phoneOK s-phoneMsg errorMsg l-spacingOK s-spacingMsg"
         *ngIf="
           addBookGroup.get('phone').errors?.required &&
           addBookGroup.get('phone').touched
         "
-        [ngClass]="'errorMsg rowDivMsg'"
       >
         Please enter contact phone number
-      </span>
-      <span
+      </div>
+
+      <div
+        class="l-phoneOK s-phoneMsg errorMsg l-spacingOK s-spacingMsg"
         *ngIf="
           addBookGroup.get('phone').errors?.pattern &&
           addBookGroup.get('phone').touched
         "
-        [ngClass]="'errorMsg rowDivMsg'"
       >
         Please check phone number and enter in required format
-      </span>
-      <span
+      </div>
+
+      <div
+        class="okMsg l-phoneOK s-phoneOK  l-spacingOK s-spacingOK"
         *ngIf="addBookGroup.get('phone').valid"
-        [ngClass]="'okayMsg rowDivMsg'"
       >
         <img class="checkmark" src="./assets/checkmark.png" alt="OK" />
-      </span>
-    </div>
+      </div>
 
-    <div class="rowDivMsg">
-      <span
+      <div
+        class="l-emailOK s-emailMsg errorMsg l-spacingOK s-spacingMsg"
         *ngIf="
           addBookGroup.get('email').errors?.required &&
           addBookGroup.get('email').touched
         "
-        [ngClass]="'errorMsg rowDivMsg'"
       >
         Please enter contact email for book exchange
-      </span>
-      <span
+      </div>
+
+      <div
+        class="okMsg l-emailOK s-emailOK  l-spacingOK s-spacingOK"
         *ngIf="addBookGroup.get('email').valid"
-        [ngClass]="'okayMsg rowDivMsg'"
       >
         <img class="checkmark" src="./assets/checkmark.png" alt="OK" />
-      </span>
-    </div>
+      </div>
 
-    <div class="rowDivMsg">
-      <span
+      <div
+        class="l-pwOK s-pwMsg errorMsg l-spacingOK s-spacingMsg"
         *ngIf="
           addBookGroup.get('postingpw').errors?.required &&
           addBookGroup.get('postingpw').touched
         "
-        [ngClass]="'errorMsg rowDivMsg'"
       >
         Please enter a password to authorize removal of your posting
-      </span>
-      <span
+      </div>
+
+      <div
+        class="l-pwOK s-pwMsg errorMsg l-spacingOK s-spacingMsg"
         *ngIf="
           addBookGroup.get('postingpw').errors?.minLength &&
           addBookGroup.get('postingpw').touched
         "
-        [ngClass]="'errorMsg rowDivMsg'"
       >
         Please make sure your password is at least 8 characters
-      </span>
-      <span
+      </div>
+
+      <div
+        class="okMsg l-pwOK s-pwOK  l-spacingOK s-spacingOK"
         *ngIf="addBookGroup.get('postingpw').valid"
-        [ngClass]="'okayMsg rowDivMsg'"
       >
         <img class="checkmark" src="./assets/checkmark.png" alt="OK" />
-      </span>
+      </div>
     </div>
-  </div>
-  <!-- close msgDiv -->
+  </form>
+  <!-- close div.jcGridContainer -->
 </div>
-<!-- close mainPageDiv -->

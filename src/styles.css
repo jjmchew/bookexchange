@@ -1,8 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
-.pageHeading {
-  color: rgb(68, 114, 196);
-  font-family: 'Merriweather', serif;
+/* 
+font-family: 'Miriam Libre', sans-serif;
+font-family: 'Open Sans', sans-serif;
+
+logo colours:
+red: rgb(255,0,0) #ff0000
+yellow: rgb(255,212,42) #ffd42a
+green: rgb(30,221,51) #1edd33
+purple: rgb(47,0,107) #2f006b
+dk blue: rgb(0,0,214) #0000d6
+lt blue: rgb(47,128,189) #2f80bd
+ */
+
+body {
+  font-family: 'Open Sans', sans-serif;
 }
+
+.pageHeading {
+  color: rgb(47, 128, 189);
+  margin: 2%;
+  font-weight: bold;
+  font-size: 1.5em;
+  font-family: 'Miriam Libre', sans-serif;
+}
+
+.jch1 {
+  font-size: 2em;
+  margin-left: 2%;
+  font-family: 'Miriam Libre', sans-serif;
+}
+
+.jch2 {
+  font-size: 1.5em;
+  font-family: 'Miriam Libre', sans-serif;
+}
+
+.jch3 {
+  font-size: 1.2em;
+  font-family: 'Miriam Libre', sans-serif;
+}
+
 .jch5 {
   font-weight: bold;
   font-size: 0.9em !important;

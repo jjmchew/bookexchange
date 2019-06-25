@@ -1,12 +1,7 @@
-<div *ngIf="book" class="container" style="margin-top: 20px">
-    <div class="media">
-        <img class="imgDiv sm-imgDiv mr-4" src="{{ book.coversrc }}" width="300" />
-        <div class="media-body">
-            <h2>{{book.title}}</h2>
-            <h3>{{book.author}}</h3><br>
-            <h4>{{book.publishdate}}</h4><br>
-            <h5>{{book.category}}</h5><br>
-            <h6>{{book.abstract}}</h6><br>
-        </div>
-    </div>
+<div *ngIf="book">
+{{book.title}}
+{{book.author}}
+{{book.publishdate}}
+{{book.category}}
+{{book.abstract}}
 </div>

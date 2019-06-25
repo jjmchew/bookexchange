@@ -1,27 +1,310 @@
-.container {
-  margin-top: 2%;
+.mainInputForm {
+  margin: 2%;
   padding: 2%;
-  width: 100%;
-  height: 65em;
-  display: block;
+  width: 96%;
+  /* height: 65em; */
+  /* display: block; */
   border: 1px solid rgb(218, 227, 243);
 }
 
-.inputDiv {
-  width: 50%;
-  float: left;
-  display: block;
+@media (min-width: 521px) {
+  .jcGridContainer {
+    display: grid;
+    margin-left: 2%;
+    /* align-items: stretch; */
+    grid-template-columns: 1fr 200px;
+    /* grid-column-gap: 3ch; */
+    grid-template-areas:
+      'l-title l-titleOK'
+      'l-author l-authorOK'
+      'l-year l-yearOK'
+      'l-cat l-catOK'
+      'l-coverimg l-coverimgOK'
+      'l-desc l-descOK'
+      'l-spacer l-spacer'
+      'l-contact l-contactOK'
+      'l-phone l-phoneOK'
+      'l-email l-emailOK'
+      'l-pw l-pwOK'
+      'l-btn l-btn';
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    align-content: center;
+    /* border: 1px solid gray; */
+  }
+
+  .l-spacing {
+    /* color: blue; */
+    /* line-height: 90%; */
+    padding-bottom: 2%;
+  }
+
+  .l-spacingOK {
+    padding-top: 2em;
+    padding-left: 2ch;
+    line-height: 90%;
+  }
+
+  .l-spacerRow {
+    grid-area: l-spacer;
+    height: 20px;
+    margin-bottom: 20px;
+  }
+  .l-title {
+    grid-area: l-title;
+  }
+  .l-author {
+    grid-area: l-author;
+  }
+  .l-year {
+    grid-area: l-year;
+  }
+  .l-cat {
+    grid-area: l-cat;
+  }
+  .l-coverimg {
+    grid-area: l-coverimg;
+  }
+  .l-desc {
+    grid-area: l-desc;
+  }
+  .l-contact {
+    grid-area: l-contact;
+  }
+  .l-phone {
+    grid-area: l-phone;
+  }
+  .l-email {
+    grid-area: l-email;
+  }
+  .l-pw {
+    grid-area: l-pw;
+  }
+  .l-btn {
+    grid-area: l-btn;
+    padding-top: 2%;
+  }
+
+  .l-titleMsg {
+    grid-area: l-titleOK;
+  }
+  .l-authorMsg {
+    grid-area: l-authorOK;
+  }
+  .l-yearMsg {
+    grid-area: l-yearOK;
+  }
+  .l-catMsg {
+    grid-area: l-catOK;
+  }
+  .l-coverimgMsg {
+    grid-area: l-coverimgOK;
+  }
+  .l-descMsg {
+    grid-area: l-descOK;
+  }
+  .l-contactMsg {
+    grid-area: l-contactOK;
+  }
+  .l-phoneMsg {
+    grid-area: l-phoneOK;
+  }
+  .l-emailMsg {
+    grid-area: l-emailOK;
+  }
+  .l-pwMsg {
+    grid-area: l-pwOK;
+  }
+
+  .l-titleOK {
+    grid-area: l-titleOK;
+  }
+  .l-authorOK {
+    grid-area: l-authorOK;
+  }
+  .l-yearOK {
+    grid-area: l-yearOK;
+  }
+  .l-catOK {
+    grid-area: l-catOK;
+  }
+  .l-coverimgOK {
+    grid-area: l-coverimgOK;
+  }
+  .l-descOK {
+    grid-area: l-descOK;
+  }
+  .l-contactOK {
+    grid-area: l-contactOK;
+  }
+  .l-phoneOK {
+    grid-area: l-phoneOK;
+  }
+  .l-emailOK {
+    grid-area: l-emailOK;
+  }
+  .l-pwOK {
+    grid-area: l-pwOK;
+  }
 }
 
-.rowDiv {
-  height: 5em;
-}
+/* ============================media query =================================== */
+@media (max-width: 520px) {
+  .jcGridContainer-sm {
+    display: grid;
+    margin-left: 2%;
+    /* height: auto; */
+    /* align-items: stretch; */
+    grid-template-columns: 1fr 50px;
+    /* grid-column-gap: 3ch; */
+    grid-template-areas:
+      's-title s-titleOK'
+      's-titleMsg s-titleMsg'
+      's-author s-authorOK'
+      's-authorMsg s-authorMsg'
+      's-year s-yearOK'
+      's-yearMsg s-yearMsg'
+      's-cat s-catOK'
+      's-catMsg s-catMsg'
+      's-coverimg s-coverimgOK'
+      's-coverimgMsg s-coverimgMsg'
+      's-desc s-descOK'
+      's-descMsg s-descMsg'
+      's-spacer s-spacer'
+      's-contact s-contactOK'
+      's-contactMsg s-contactMsg'
+      's-phone s-phoneOK'
+      's-phoneMsg s-phoneMsg'
+      's-email s-emailOK'
+      's-emailMsg s-emailMsg'
+      's-pw s-pwOK'
+      's-pwMsg s-pwMsg'
+      's-btn s-btn';
+    flex-wrap: wrap;
+    flex-direction: column;
+    /* border: 1px solid gray; */
+  }
 
-.rowDivMsg {
-  height: 5em;
-  padding-top: 0.3em;
-  vertical-align: middle;
-  line-height: 0.9;
+  .s-spacing {
+    /* color: red; */
+    /* line-height: 90%; */
+  }
+
+  .s-spacingOK {
+    padding-top: 2em;
+    padding-left: 1ch;
+    /* line-height: 90%; */
+  }
+
+  .s-spacingMsg {
+    /* line-height: 90%; */
+    margin-bottom: 1em;
+  }
+
+  .s-spacerRow {
+    grid-area: s-spacer;
+    height: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .s-title {
+    grid-area: s-title;
+  }
+  .s-author {
+    grid-area: s-author;
+  }
+  .s-year {
+    grid-area: s-year;
+  }
+  .s-cat {
+    grid-area: s-cat;
+  }
+  .s-coverimg {
+    grid-area: s-coverimg;
+  }
+  .s-desc {
+    grid-area: s-desc;
+  }
+  .s-contact {
+    grid-area: s-contact;
+  }
+  .s-phone {
+    grid-area: s-phone;
+  }
+  .s-email {
+    grid-area: s-email;
+  }
+  .s-pw {
+    grid-area: s-pw;
+  }
+  .s-btn {
+    grid-area: s-btn;
+    padding-top: 2%;
+  }
+
+  .s-titleMsg {
+    grid-area: s-titleMsg;
+  }
+  .s-authorMsg {
+    grid-area: s-authorMsg;
+  }
+  .s-yearMsg {
+    grid-area: s-yearMsg;
+  }
+  .s-catMsg {
+    grid-area: s-catMsg;
+  }
+  .s-coverimgMsg {
+    grid-area: s-coverimgMsg;
+  }
+  .s-descMsg {
+    grid-area: s-descMsg;
+  }
+
+  .s-contactMsg {
+    grid-area: s-contactMsg;
+  }
+  .s-phoneMsg {
+    grid-area: s-phoneMsg;
+  }
+  .s-emailMsg {
+    grid-area: s-emailMsg;
+  }
+  .s-pwMsg {
+    grid-area: s-pwMsg;
+  }
+
+  .s-titleOK {
+    grid-area: s-titleOK;
+  }
+  .s-authorOK {
+    grid-area: s-authorOK;
+  }
+  .s-yearOK {
+    grid-area: s-yearOK;
+  }
+  .s-catOK {
+    grid-area: s-catOK;
+  }
+  .s-coverimgOK {
+    grid-area: s-coverimgOK;
+  }
+  .s-descOK {
+    grid-area: s-descOK;
+  }
+  .s-contactOK {
+    grid-area: s-contactOK;
+  }
+  .s-phoneOK {
+    grid-area: s-phoneOK;
+  }
+  .s-emailOK {
+    grid-area: s-emailOK;
+  }
+  .s-pwOK {
+    grid-area: s-pwOK;
+  }
 }
 
 .checkmark {
@@ -29,30 +312,19 @@
   width: auto;
 }
 
-.spacerRow {
-  height: 4em;
-  padding-top: 1em;
-}
-
-.msgDiv {
-  width: 45%;
-  float: left;
-  padding-left: 2%;
-  display: block;
-}
-
 .comment {
   font-style: italic;
-  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  font-family: 'Open Sans', sans-serif;
   margin-left: 6%;
   color: gray;
-  font-size: 0.8em;
+  font-size: 0.6em;
 }
 
 .errorMsg {
   color: red;
 }
-.okayMsg {
+.okMsg {
   color: green;
 }
 

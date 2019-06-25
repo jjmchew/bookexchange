@@ -1,31 +1,60 @@
-<div class="container">
-  <div class="grid m-col1 sm-col1 d-col1">
-    <img class="img-m img-sm img-d" src="./assets/bookstack.png" />
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4" style="font-family: 'Miriam Libre', sans-serif;">
+      Exchange old books for new
+    </h1>
+    <p class="lead" style="font-family: 'Open Sans', sans-serif;">
+      a free website to post your old books and help others connect with you to
+      exchange books
+    </p>
   </div>
-  <!-- close div.grid.col1 -->
-  <div class="grid m-col2 sm-col2 d-col2">
-    <div style="color: rgb(68,114,196); font-family: 'Merriweather', serif;">
-      How does the Book Exchange Portal work?
-    </div>
-    <div class="quote">
-      “I’m looking for something new to read, but I don’t want to spend much
-      money”
-    </div>
-    <ol class="instructions">
-      <li>
-        <a routerLink="/browsebooks">Browse the books</a> being offered by other
-        individuals through the website. Contact individuals directly to
-        establish a suitable exchange and finalize shipping details between
-        yourselves
-      </li>
-      <br />
-      <li>
-        Look through your existing book collection and
-        <a routerLink="/addbooks">post a book</a> online to help inspire others
-        to contact you
-      </li>
-    </ol>
-  </div>
-  <!-- close div.grid.col2 -->
 </div>
-<!-- close div.container -->
+
+<div class="container.fluid">
+  <div class="pageHeading">
+    How does this work?
+  </div>
+
+  <div class="jcGridContainer">
+    <div class="cardTitle jch3 c1t c1t-sm" style="border-color: #ffd42a">
+      <strong>Find a new book</strong>
+    </div>
+    <div class="cardBody c1b c1b-sm" style="border-color: #ffd42a">
+      Other users have posted books to the website that you might want to read.
+      See what's available in our database and find contacts to set-up your book
+      exchange.
+    </div>
+    <div class="cardButton c1btn c1btn-sm" style="border-color: #ffd42a">
+      <button
+        type="button"
+        class="btn btn-light text-wrap"
+        style="background-color: rgb(255, 212, 42); border: rgb(255, 212, 42)"
+        routerLink="/browsebooks"
+      >
+        Browse Books
+      </button>
+    </div>
+
+    <div class="rowSpacer"></div>
+
+    <div class="cardTitle jch3 c2t c2t-sm">
+      <strong>Offer an old book</strong>
+    </div>
+    <div class="cardBody c2b c2b-sm">
+      Share a posting of your old books to let other users know what's
+      available. This helps motivate others to reach out to you to set up an
+      exchange.
+    </div>
+    <div class="cardButton c2btn c2btn-sm">
+      <button
+        type="button"
+        class="btn btn-secondary text-wrap"
+        routerLink="/addbooks"
+        style="background-color:rgb(47, 128, 189); border: rgb(47, 128, 189);"
+      >
+        Post a Book
+      </button>
+    </div>
+  </div>
+</div>
+<!-- close div.container.fluid -->

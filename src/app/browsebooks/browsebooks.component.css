@@ -1,6 +1,7 @@
-.container {
+.jcContainer {
   display: block;
-  width: 100%;
+  width: 96%;
+  margin-left: 2%;
   /* background-color: red; */
 }
 

@@ -1,107 +1,135 @@
-.container {
-  display: block;
-  width: 100%;
-  /* background-color: red; */
+.jumbotron {
+  background-image: url('/assets/books-background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
 }
 
-.row {
-  display: block;
-  width: 100%;
-  /* max-width: 960px; */
-  /* for desktop view */
-  margin: 0 auto;
-  /* outline: 1px solid rgb(218, 227, 243); */
-  /* to visualize our element */
-  font-family: 'Merriweather', serif;
+.jcGridContainer {
+  display: grid;
+  margin: 2%;
+  align-items: stretch;
+  grid-template-columns: auto auto;
+  grid-column-gap: 3ch;
+  grid-template-areas:
+    'a1-1 a1-2'
+    'a2-1 a2-2'
+    'a3-1 a3-2'
+    'a4-1 a4-2'
+    'a5-1 a5-2'
+    'a6-1 a6-2'
+    'a7-1 a7-2';
+  flex-wrap: wrap;
+  flex-direction: column;
+  /* border: 1px solid gray; */
 }
 
-/* clearfix set against the row class for convenience */
-.row:before,
-.row:after {
-  content: ' ';
-  display: table;
-}
-.row:after {
-  clear: both;
-}
-
-.grid {
-  box-sizing: border-box;
-  height: 20px;
-  padding: 1%;
-  /* to visualize */
-  float: left;
-  margin: 0px;
-  /* padding-bottom: 10%; */
-  outline: 0px solid rgb(218, 227, 243);
-  height: auto;
-  /* overflow: hidden; */
-  font-family: 'Roboto', sans-serif;
+.cardTitle {
+  text-align: center;
+  padding: 8% 8% 2% 8%;
+  border: 1px solid rgb(47, 128, 189);
+  border-radius: 5px 5px 0 0;
+  border-bottom: 0;
+  font-family: 'Miriam Libre', sans-serif;
 }
 
-.m-col1 {
-  width: 40%;
-  margin: 1%;
-}
-.m-col2 {
-  width: 55%;
-  margin-top: 5%;
+.cardBody {
+  text-align: left;
+  padding: 2% 8% 2% 8%;
+  border: 1px solid rgb(47, 128, 189);
+  border-top: 0;
+  border-bottom: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 
-.img-m {
-  width: 100%;
-  height: auto;
-  float: left;
-  margin: 0px;
+.cardButton {
+  text-align: center;
+  padding: 8%;
+  border: 1px solid rgb(47, 128, 189);
+  border-radius: 0 0 5px 5px;
+  border-top: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.rowSpacer {
+  grid-area: a4-1;
+  height: 10px;
+}
+.c1t {
+  grid-area: a1-1;
+}
+.c1b {
+  grid-area: a2-1;
+}
+.c1btn {
+  grid-area: a3-1;
+}
+
+/* .c2t {
+  grid-area: a1-2;
+}
+.c2b {
+  grid-area: a2-2;
+}
+.c2btn {
+  grid-area: a3-2;
+} */
+
+@media (min-width: 992px) {
+  .cardTitle {
+    text-align: center;
+    padding: 4% 4% 1% 4%;
+    border: 1px solid rgb(47, 128, 189);
+    border-radius: 5px 5px 0 0;
+    border-bottom: 0;
+    font-family: 'Miriam Libre', sans-serif;
+  }
+
+  .cardBody {
+    text-align: left;
+    padding: 1% 4% 1% 4%;
+    border: 1px solid rgb(47, 128, 189);
+    border-top: 0;
+    border-bottom: 0;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .cardButton {
+    text-align: center;
+    padding: 4%;
+    border: 1px solid rgb(47, 128, 189);
+    border-radius: 0 0 5px 5px;
+    border-top: 0;
+    font-family: 'Open Sans', sans-serif;
+  }
 }
 
 @media (max-width: 500px) {
-  .sm-col1 {
-    width: 100%;
+  .c1t-sm {
+    grid-column: span 2;
   }
-
-  .img-sm {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    height: auto;
-    /* visibility: hidden; */
+  .c1b-sm {
+    grid-column: span 2;
   }
-}
-
-@media (min-width: 960px) {
-  .d-col1 {
-    width: 20%;
+  .c1btn-sm {
+    grid-column: span 2;
   }
-  .d-col2 {
-    width: 72%;
-    margin-top: 3%;
+  .c2t-sm {
+    grid-area: a5-1;
+    grid-column: span 2;
   }
-
-  .img-d {
-    width: 100%;
-    height: auto;
-    float: left;
+  .c2b-sm {
+    grid-area: a6-1;
+    grid-column: span 2;
+  }
+  .c2btn-sm {
+    grid-area: a7-1;
+    grid-column: span 2;
   }
 }
 
-.bookCategory {
-  position: relative;
-  padding-top: 5%;
-}
-
-.quote {
-  font-family: 'Roboto', sans-serif;
-  font-size: 0.8em;
-  padding: 5%;
-  font-style: italic;
-  color: rgba(0, 0, 0, 0.7);
-}
-
-.instructions {
-  color: rgba(0, 0, 0, 0.7);
-  font-family: 'Roboto', sans-serif;
-  font-size: 0.8em;
-  padding: 5%;
+.card-title {
+  font-family: 'Miriam Libre', sans-serif;
 }

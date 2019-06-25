@@ -10,10 +10,10 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ModalComponent } from './modal/modal.component';
 import { BookdetailsComponent } from './bookdetails/bookdetails.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
 import { ModalbookdetailsComponent } from './modalbookdetails/modalbookdetails.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { BookDetailsComponent } from './book-details/book-details.component';
 import { ModalconfirmationComponent } from './modalconfirmation/modalconfirmation.component';
 
 @NgModule({
@@ -25,8 +25,8 @@ import { ModalconfirmationComponent } from './modalconfirmation/modalconfirmatio
     NavbarComponent,
     ModalComponent,
     BookdetailsComponent,
-    ModalbookdetailsComponent,
     BookDetailsComponent,
+    ModalbookdetailsComponent,
     ModalconfirmationComponent
   ],
   imports: [
