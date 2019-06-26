@@ -1,3 +1,4 @@
+/* set size for book cover image */
 .imgDiv {
   width: 20%;
   height: auto;
@@ -5,23 +6,28 @@
   margin: 1%;
 }
 
+/* info-1 used for book info (i.e., not contact info) */
 .info-1 {
   width: 76%;
   float: left;
 }
 
+/* info-heaer and info-data used for contact info */
+/* info-header used for data labels, e.g., "contact", "phone", "email" */
 .info-header {
-  width: 20%;
+  width: 22%;
   float: left;
   font-style: normal;
 }
 
+/* info-data used to display actual contact name, phone #, email */
 .info-data {
   font-weight: bold;
-  width: 76%;
+  width: 75%;
   float: left;
 }
 
+/* media query for small screens */
 @media (max-width: 500px) {
   .sm-info-1 {
     width: 80%;
@@ -44,6 +50,7 @@
   }
 }
 
+/* custom override on bootstrap h5 style for book title */
 h5 {
   font-weight: bold;
   margin: 0px;

@@ -1,3 +1,4 @@
+/* modifies bootstrap jumbotron to include an image */
 .jumbotron {
   background-image: url('/assets/books-background.jpg');
   background-repeat: no-repeat;
@@ -7,6 +8,8 @@
   overflow: hidden;
 }
 
+/* define a CSS grid to ensure parts of "cards" remain aligned when side-by-side  */
+/* named grid areas are used to define location of each card element (title, body, button) for both cards */
 .jcGridContainer {
   display: grid;
   margin: 2%;
@@ -26,6 +29,7 @@
   /* border: 1px solid gray; */
 }
 
+/* set styles for both card titles at "medium" screen sizes*/
 .cardTitle {
   text-align: center;
   padding: 8% 8% 2% 8%;
@@ -35,6 +39,7 @@
   font-family: 'Miriam Libre', sans-serif;
 }
 
+/* set styles for both card bodies at "medium" screen sizes*/
 .cardBody {
   text-align: left;
   padding: 2% 8% 2% 8%;
@@ -44,6 +49,7 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+/* set styles for both card button "containers" at "medium" screen sizes*/
 .cardButton {
   text-align: center;
   padding: 8%;
@@ -53,10 +59,13 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+/* spacer defined for when cards are vertically stacked (small screen media query) */
 .rowSpacer {
   grid-area: a4-1;
   height: 10px;
 }
+
+/* defines positions in CSS grid for card1:  t-title, b-body, btn-button */
 .c1t {
   grid-area: a1-1;
 }
@@ -67,6 +76,7 @@
   grid-area: a3-1;
 }
 
+/* no need to define positions for card 2 once card 1 is defined */
 /* .c2t {
   grid-area: a1-2;
 }
@@ -78,6 +88,8 @@
 } */
 
 @media (min-width: 992px) {
+  /* styles for card title, body, button container are modified for larger screens */
+  /* only difference is reduced white space - i.e., reduced padding */
   .cardTitle {
     text-align: center;
     padding: 4% 4% 1% 4%;
@@ -106,6 +118,7 @@
   }
 }
 
+/* media query for small screen sizes - stacks cards vertically */
 @media (max-width: 500px) {
   .c1t-sm {
     grid-column: span 2;
@@ -128,8 +141,4 @@
     grid-area: a7-1;
     grid-column: span 2;
   }
-}
-
-.card-title {
-  font-family: 'Miriam Libre', sans-serif;
 }

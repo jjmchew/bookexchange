@@ -1,3 +1,4 @@
+/* custom name used to define size of book "card" area */
 .jcContainer {
   display: block;
   width: 96%;
@@ -5,15 +6,11 @@
   /* background-color: red; */
 }
 
+/* define rows for CSS divs */
 .row {
   display: block;
   width: 100%;
-  /* max-width: 960px; */
-  /* for desktop view */
   margin: 0 auto;
-  /* outline: 1px solid rgb(218, 227, 243); */
-  /* to visualize our element */
-  font-family: 'Merriweather', serif;
 }
 
 /* clearfix set against the row class for convenience */
@@ -26,6 +23,7 @@
   clear: both;
 }
 
+/* define a bounding box for each book "card" to ensure sizes are consistent */
 .grid {
   box-sizing: border-box;
   position: relative;
@@ -34,17 +32,18 @@
   display: block;
   float: left;
   margin: 1%;
-  /* padding-bottom: 10%; */
   outline: 1px solid rgb(218, 227, 243);
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
+/* grid for "medium" widths - 2 columns */
 .m-grid-2 {
   width: 48%;
   float: left;
   overflow: hidden;
 }
 
+/* set boot cover image window at this size - ensures consistency in book "cards" */
 .img-m {
   width: 40%;
   height: auto;
@@ -56,6 +55,7 @@
   margin: 5px;
 }
 
+/* fill image within "img-[x]" window - ensures consistency in book "cards" */
 .imgClass {
   max-width: 100%;
   max-height: 100%;
@@ -67,12 +67,15 @@
   right: 0;
 }
 
+/* "small" widths (1 column) - note matched closest bootstrap breakpoint for better consistency in responsiveness */
 @media (max-width: 576px) {
   .sm-grid-1 {
     width: 100%;
     float: left;
     overflow: hidden;
   }
+
+  /* set boot cover image window at this size - ensures consistency in book "cards" */
   .img-sm {
     width: 45%;
     height: auto;
@@ -84,13 +87,15 @@
   }
 }
 
+/* large widths (uses 3 columns) - note matched bootstrap closest breakpoint for better consistency in responsiveness */
 @media (min-width: 992px) {
-  .d-grid-4 {
+  .d-grid-3 {
     width: 30%;
     float: left;
     overflow: hidden;
   }
 
+  /* set boot cover image window at this size - ensures consistency in book "cards" */
   .img-d {
     width: 40%;
     height: auto;
@@ -102,6 +107,7 @@
   }
 }
 
+/* provides extra padding when bookcategory is displayed */
 .bookCategory {
   position: relative;
   padding-top: 5%;

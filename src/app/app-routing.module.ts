@@ -5,6 +5,7 @@ import { BrowsebooksComponent } from './browsebooks/browsebooks.component';
 import { AddbooksComponent } from './addbooks/addbooks.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 
+// note:  BookDetailsComponent not used in final prod version online - modal used instead
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'browsebooks', component: BrowsebooksComponent },

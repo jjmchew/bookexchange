@@ -1,3 +1,5 @@
+<!-- defines the core content of book modal called from browsebooks or as confirmation from addbooks -->
+<!-- only 2 media query sizes are defined "regular" and "small" -->
 <div style="width:100%">
   <img class="imgDiv sm-imgDiv" src="{{ selectedBook.coversrc }}" />
   <div class="info-1 sm-info1">
@@ -13,7 +15,7 @@
 
     <div class="info-1 sm-info1" style="padding-top: 15%;">
       <span class="info-header sm-info-header"> contact:</span>
-      <span class="info-data sm-info-header">{{ selectedBook.contact }}</span>
+      <span class="info-data sm-info-data">{{ selectedBook.contact }}</span>
     </div>
 
     <div class="info-1 sm-info1">
@@ -28,6 +30,7 @@
   </div>
 </div>
 
+<!-- unused call to alternate display method for book-details component -->
 <!-- <a class="btn btn-primary" routerLink="bookdetails/{{ selectedBook.id }}"
   >View More</a
 > -->

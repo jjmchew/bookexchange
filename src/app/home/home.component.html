@@ -1,3 +1,4 @@
+<!-- bootstrap jumbotron (with background graphic added in CSS)  -->
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4" style="font-family: 'Miriam Libre', sans-serif;">
@@ -10,10 +11,17 @@
   </div>
 </div>
 
+<!-- page content after jumbotron -->
 <div class="container.fluid">
   <div class="pageHeading">
     How does this work?
   </div>
+
+  <!-- set-up CSS grid to ensure cards/card content remains rigidly aligned as screen size shrinks/grows -->
+  <!-- Note:  cards are created manually in CSS - bootstrap not used -->
+  <!-- colors for "browsebooks" card are applied manually to reduce CSS definitions -->
+  <!-- CSS classes are created for each part of card1:  title, body, btn in "large" and "small" positions -->
+  <!-- "sm" position is stacked vertically for enhanced mobile viewing-->
 
   <div class="jcGridContainer">
     <div class="cardTitle jch3 c1t c1t-sm" style="border-color: #ffd42a">
@@ -25,6 +33,7 @@
       exchange.
     </div>
     <div class="cardButton c1btn c1btn-sm" style="border-color: #ffd42a">
+      <!-- note:  button is stock bootstrap with custom colour applied via style attribute -->
       <button
         type="button"
         class="btn btn-light text-wrap"
@@ -37,6 +46,7 @@
 
     <div class="rowSpacer"></div>
 
+    <!-- define card2 -->
     <div class="cardTitle jch3 c2t c2t-sm">
       <strong>Offer an old book</strong>
     </div>
@@ -46,6 +56,7 @@
       exchange.
     </div>
     <div class="cardButton c2btn c2btn-sm">
+      <!-- note:  button is stock bootstrap with custom colour applied via style attribute -->
       <button
         type="button"
         class="btn btn-secondary text-wrap"

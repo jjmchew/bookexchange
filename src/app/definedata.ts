@@ -1,3 +1,4 @@
+// stores sample (static) data used during front-end development:  not used in production version
 import { Book } from './defineclasses';
 
 export const booksArray: Book[] = [

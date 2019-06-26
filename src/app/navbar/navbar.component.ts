@@ -7,6 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   @Input() title: string;
+
+  // created variable and method to toggle states for navbar (i.e., for narrow screen widths)
   collapsed = true;
   toggleCollapsed(): void {
     this.collapsed = !this.collapsed;

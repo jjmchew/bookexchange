@@ -1,3 +1,4 @@
+// defines key Book class which corresponds to DB data stored
 export class Book {
   id: number;
   title: string;

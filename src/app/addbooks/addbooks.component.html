@@ -1,3 +1,4 @@
+<!-- defines the main input form for addbooks -->
 <div class="mainInputForm">
   <div class="pageHeading">
     Post your book online
@@ -5,6 +6,7 @@
   </div>
 
   <form [formGroup]="addBookGroup">
+    <!-- uses CSS grid to define areas for input / messages / checkmark based upon size "large" and "small" -->
     <div class="jcGridContainer jcGridContainer-sm">
       <div class="l-title s-title l-spacing s-spacing">
         <label for="title">* Title</label>
@@ -120,6 +122,7 @@
         />
       </div>
 
+      <!-- tooltip using ng-bootstrap to provide additional details on posting password-->
       <ng-template #tipContent
         >The password you pick will be required to remove this posting from the
         website. Please note this password in a safe place.
@@ -157,6 +160,7 @@
       </div>
 
       <!-- ----------------begin responsive input messages -------------------------->
+      <!-- messagse are defined to different grid areas based upon screen size -->
       <!-- for large screen, okMsg and errorMsg go in grid "OK" -->
       <!-- for small sreens, okMsg goes in grid "OK", errorMsg go in grid "Msg" -->
       <div

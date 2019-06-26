@@ -1,6 +1,9 @@
+<!-- This component contains the look of the modal and the footer dialogs for "remove listing" -->
 <div role="document" class="modal-dialog modal-lg">
   <div class="modal-content">
     <div class="modal-header">
+      <!-- modal messaging varies depending on whether it was called from browsebooks component 
+        or addbooks (as a confirmation) -->
       <div *ngIf="browseBooks; else elseBlock">
         <h6 class="modal-title">
           Contact the person below to arrange a book exchange
@@ -11,6 +14,8 @@
           You have just posted the following book entry to the book exchange
         </h6>
       </ng-template>
+
+      <!-- close button always displayed -->
       <button
         type="button"
         class="close"
@@ -20,19 +25,26 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
+
+    <!-- content for modal is defined by the "modalbookdetails component" (i.e., the bookdetails component) -->
     <div class="modal-body">
       <ng-content></ng-content>
     </div>
 
+    <!-- used to display a brief "working" message which waiting for the promise associated with 
+    completing the patch HTTP request -->
     <div class="text-center">
       <p class="lead" *ngIf="loading">Working...</p>
     </div>
 
+    <!-- modal messaging varies depending on whether it was called from browsebooks component 
+        or addbooks (as a confirmation) -->
     <div *ngIf="browseBooks === false" style="text-align:center">
       Please write down your password to remove your posting:
       <b>{{ selectedBook.postingpw }}</b>
     </div>
 
+    <!-- remove listing dropdown (bootstrap) and form is not displayed when modal is called from addbooks -->
     <div *ngIf="browseBooks">
       <div class="modal-footer">
         <!-- start dropdown -->
@@ -52,7 +64,7 @@
                 aria-labelledby="dropdownForm1"
                 style="padding:1%"
               >
-                <!-- <form class="px-4 py-3"> -->
+                <!-- form to take in user-entered password to remove posting -->
                 <div class="form-group">
                   <label for="postingpw" style="font-size: .8em;"
                     >Posting Password</label

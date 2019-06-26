@@ -1,5 +1,8 @@
 /* 
+for headings:
 font-family: 'Miriam Libre', sans-serif;
+
+for everything else:
 font-family: 'Open Sans', sans-serif;
 
 logo colours:
@@ -23,6 +26,7 @@ body {
   font-family: 'Miriam Libre', sans-serif;
 }
 
+/* specific heading styles defined to ensure no conflict with bootstrap ng-bootstrap, etc. */
 .jch1 {
   font-size: 2em;
   margin-left: 2%;

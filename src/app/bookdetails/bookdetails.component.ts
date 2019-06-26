@@ -1,3 +1,6 @@
+// gets the selectedbook from the selectedbook service and then displays additional details
+// associated with the book
+
 import { Component, OnInit, Input } from '@angular/core';
 import { Book } from '../defineclasses';
 import { SelectedbookService } from '../selectedbook.service';

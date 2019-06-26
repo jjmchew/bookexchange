@@ -1,19 +1,17 @@
+/* set size of main input form */
 .mainInputForm {
   margin: 2%;
   padding: 2%;
   width: 96%;
-  /* height: 65em; */
-  /* display: block; */
   border: 1px solid rgb(218, 227, 243);
 }
 
+/* media width for large screens - note grid for large screens is different from that for small  */
 @media (min-width: 521px) {
   .jcGridContainer {
     display: grid;
     margin-left: 2%;
-    /* align-items: stretch; */
     grid-template-columns: 1fr 200px;
-    /* grid-column-gap: 3ch; */
     grid-template-areas:
       'l-title l-titleOK'
       'l-author l-authorOK'
@@ -28,14 +26,11 @@
       'l-pw l-pwOK'
       'l-btn l-btn';
     flex-wrap: wrap;
-    /* flex-direction: column; */
     align-content: center;
-    /* border: 1px solid gray; */
   }
 
+  /* defines styles for input, OK message space "OK", and "spacerRow" between book details and contact details */
   .l-spacing {
-    /* color: blue; */
-    /* line-height: 90%; */
     padding-bottom: 2%;
   }
 
@@ -50,6 +45,8 @@
     height: 20px;
     margin-bottom: 20px;
   }
+
+  /* defines grid areas to place each form input for large screens */
   .l-title {
     grid-area: l-title;
   }
@@ -85,6 +82,7 @@
     padding-top: 2%;
   }
 
+  /* defines grid areas to place each validation error message for large screens */
   .l-titleMsg {
     grid-area: l-titleOK;
   }
@@ -116,6 +114,7 @@
     grid-area: l-pwOK;
   }
 
+  /* defines grid areas to place each validation checkmark for large screens */
   .l-titleOK {
     grid-area: l-titleOK;
   }
@@ -149,6 +148,7 @@
 }
 
 /* ============================media query =================================== */
+/* media width for small screens - note grid for large screens is different from that for small  */
 @media (max-width: 520px) {
   .jcGridContainer-sm {
     display: grid;
@@ -185,6 +185,8 @@
     /* border: 1px solid gray; */
   }
 
+  /* defines styles for input, OK message space "OK", and "spacerRow" between book details and contact details */
+  /* note additional style at small screens "Msg: grid area */
   .s-spacing {
     /* color: red; */
     /* line-height: 90%; */
@@ -208,6 +210,7 @@
     margin-bottom: 20px;
   }
 
+  /* defines grid areas to place each form input for small screens */
   .s-title {
     grid-area: s-title;
   }
@@ -243,6 +246,7 @@
     padding-top: 2%;
   }
 
+  /* defines grid areas to place each validation error message for small screens (below input) */
   .s-titleMsg {
     grid-area: s-titleMsg;
   }
@@ -275,6 +279,7 @@
     grid-area: s-pwMsg;
   }
 
+  /* defines grid areas to place each validation checkmark for large screens (to right of input)*/
   .s-titleOK {
     grid-area: s-titleOK;
   }
@@ -307,11 +312,13 @@
   }
 }
 
+/* sets container for checkmark graphic */
 .checkmark {
   height: 2em;
   width: auto;
 }
 
+/* styling for required fields comment */
 .comment {
   font-style: italic;
   font-weight: normal;
@@ -321,15 +328,17 @@
   font-size: 0.6em;
 }
 
+/* sets styles for validation error messages */
 .errorMsg {
   color: red;
 }
+
+/* sets styles for validation ok messages (generally unused) */
 .okMsg {
   color: green;
 }
 
-/*  */
-/* Tooltip text */
+/* sets tooltip styles*/
 .tooltip {
   position: relative;
   display: inline-block;
